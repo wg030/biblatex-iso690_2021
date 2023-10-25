@@ -1,8 +1,8 @@
 % iso690_2021.dbx
 
 
-\def\fileversion{0.1}
-\def\filedate{2023/07/16}
+\def\fileversion{0.2}
+\def\filedate{2023/10/25}
 
 \ProvidesFile{iso690_2021.dbx}
   [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
@@ -16,12 +16,6 @@
 
 
 % Declare new fields
-
-% [see 7.1.2.4.3 EXAMPLE 26, p. 22]
-\DeclareDatamodelFields[type=field, datatype=literal]{mainseries}
-
-% [see 7.1.2.4.3 EXAMPLE 26, p. 22]
-\DeclareDatamodelFields[type=field, datatype=integer]{mainvolume}
 
 % [see 7.11.2 EXAMPLE 8, p. 59]
 \DeclareDatamodelFields[type=field, datatype=literal]{eissn,eisbn,lccn}
@@ -37,12 +31,6 @@
 
 
 % Declare new fields for (specific / all) entry types
-
-% [see 7.1.2.4.3 EXAMPLE 26, p. 22]
-\DeclareDatamodelEntryfields{mainseries}
-
-% [see 7.1.2.4.3 EXAMPLE 26, p. 22]
-\DeclareDatamodelEntryfields{mainvolume}
 
 % [see 7.11.2 EXAMPLE 8, p. 59]
 \DeclareDatamodelEntryfields{eissn,eisbn,lccn}

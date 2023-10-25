@@ -1,8 +1,8 @@
 % english-iso690_2021.lbx
 
 
-\def\fileversion{0.1}
-\def\filedate{2023/07/16}
+\def\fileversion{0.2}
+\def\filedate{2023/10/25}
 
 \ProvidesFile{english-iso690_2021.lbx}
   [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
@@ -27,21 +27,25 @@ cataloguedin,
 foreword,introduction,afterword,
 %
 % creator of work [see 7.2.2 a), p. 25]
-author,composer,songwriter,librettist,lyricist,mappingagency,surveyor,
-cartographer,systemdesignerofsoftware,holder,patentee,patentapplicant,inventor,
-artist,photographer,directorofmotionpictures,draughtsman,graphicdesigner,
-architect,
+author,authors,composer,composers,songwriter,songwriters,librettist,librettists,
+lyricist,lyricists,mappingagency,surveyor,surveyors,cartographer,cartographers,
+systemdesignerofsoftware,systemdesignersofsoftware,holder,holders,patentee,
+patentees,patentapplicant,patentapplicants,inventor,inventors,artist,artists,
+photographer,photographers,directorofmotionpictures,directorsofmotionpictures,
+draughtsman,draughtsmen,graphicdesigner,graphicdesigners,architect,architects,
 %
 % expresser of created work [see 7.2.2 b), p. 25]
-conductor,performerofmusic,performerofdrama,translator,softwareprogrammer,
-engineer,
+conductor,conductors,performerofmusic,performersofmusic,performerofdrama,
+performersofdrama,translator,translators,softwareprogrammer,softwareprogrammers,
+engineer,engineers,
 %
 % reviser of work [see 7.2.2 c), p. 25]
-compiler,editor,reviser,
+compiler,compilers,editor,editors,editor2,editor2s,reviser,revisers,
 %
 % creator of derivative work [see 7.2.2 d), p. 25]
-engraver,photographerofanothercreatorswork,copyist,arranger,reviewer,
-commentator,annotator,
+engraver,engravers,photographerofanothercreatorswork,
+photographersofanothercreatorswork,copyist,copyists,arranger,arrangers,reviewer,
+reviewers,commentator,commentators,annotator,
 %
 % publisher of manifestation [see 7.2.2 e), p. 26]
 publisher,onlineinformationprovider,productioncompany,
@@ -72,7 +76,8 @@ urlseen,
 %
 % Reissuance and surrogate dates [see 7.7.5, pp. 48–49;
 % 7.12.2.4 EXAMPLE 2, p. 65]
-conceived,reissued,reprinted,copied,facsimiled,cast,digitised,archived,
+conceived,reissued,reprinted,copied,facsimiled,cast,firstcast,digitised,
+archived,
 %
 % Publisher [see 7.8.2.2, p. 50]
 nopublisher,
@@ -91,8 +96,8 @@ print,
 urlfrom,
 %
 % Availability and location [see 7.12, pp. 60–68]
-listedat,seealso,archivedcopy,originallyfrom,digsurrogatefrom,
-surrogatefrom,digitalrecording,legaldepositfrom,distributor,
+listedat,urlalso,seealso,archivedcopy,originallyfrom,digsurrogatefrom,
+physsurrogatefrom,surrogatefrom,digitalrecording,legaldepositfrom,
 %
 % Access restrictions [see 7.12.4, pp. 67–68]
 paywall,metered,restricted,
@@ -105,7 +110,9 @@ event,at,
 %
 % Relationship [see 7.14, pp. 70–76]
 translationof,commentaryon,annotationon,abridgementof,adaptationof,reviewof,
-physicalsurrogate,reproductionof,digitalsurrogate,includes,performanceof,via,
+reproductionof,includes,performanceof,via,
+% Patents [see 8.10, pp. 118–120]
+applicationdate,issuancedate,
 }
 
 
@@ -124,46 +131,82 @@ afterword = {{afterword}{afterword}},
 %
 % creator of work [see 7.2.2 a), p. 25]
 author = {{author}{author}},
+authors = {{authors}{authors}},
 composer = {{composer}{composer}},
+composers = {{composers}{composers}},
 songwriter = {{songwriter}{songwriter}},
+songwriters = {{songwriters}{songwriters}},
 librettist = {{librettist}{librettist}},
+librettists = {{librettists}{librettists}},
 lyricist = {{lyricist}{lyricist}},
+lyricists = {{lyricists}{lyricists}},
 mappingagency = {{mapping agency}{mapping agency}},
 surveyor = {{surveyor}{surveyor}},
+surveyors = {{surveyors}{surveyors}},
 cartographer = {{cartographer}{cartographer}},
+cartographers = {{cartographers}{cartographers}},
 systemdesignerofsoftware = {{system designer of software}{system designer of software}},
+systemdesignersofsoftware = {{system designers of software}{system designers of software}},
 holder = {{holder}{holder}},
+holders = {{holders}{holders}},
 patentee = {{patentee}{patentee}},
+patentees = {{patentees}{patentees}},
 patentapplicant = {{patent applicant}{patent applicant}},
+patentapplicants = {{patent applicants}{patent applicants}},
 inventor = {{inventor}{inventor}},
+inventors = {{inventors}{inventors}},
 artist = {{artist}{artist}},
+artists = {{artists}{artists}},
 photographer = {{photographer}{photographer}},
+photographers = {{photographers}{photographers}},
 directorofmotionpictures = {{director of motion pictures}{director of motion pictures}},
+directorsofmotionpictures = {{directors of motion pictures}{directors of motion pictures}},
 draughtsman = {{draughtsman}{draughtsman}},
+draughtsmen = {{draughtsmen}{draughtsmen}},
 graphicdesigner = {{graphic designer}{graphic designer}},
+graphicdesigners = {{graphic designers}{graphic designers}},
 architect = {{architect}{architect}},
+architects = {{architects}{architects}},
 %
 % expresser of created work [see 7.2.2 b), p. 25]
 conductor = {{conductor}{conductor}},
+conductors = {{conductors}{conductors}},
 performerofmusic = {{performer of music}{performer of music}},
+performersofmusic = {{performers of music}{performers of music}},
 performerofdrama = {{performer of drama}{performer of drama}},
+performersofdrama = {{performers of drama}{performers of drama}},
 translator = {{translator}{translator}},
+translators = {{translators}{translators}},
 softwareprogrammer = {{software programmer}{software programmer}},
+softwareprogrammers = {{software programmers}{software programmers}},
 engineer = {{engineer}{engineer}},
+engineers = {{engineers}{engineers}},
 %
 % reviser of work [see 7.2.2 c), p. 25]
 compiler = {{compiler}{compiler}},
+compilers = {{compilers}{compilers}},
 editor = {{editor}{editor}},
+editors = {{editors}{editors}},
+editor2 = {{editor}{editor}},
+editor2s = {{editors}{editors}},
 reviser = {{reviser}{reviser}},
+revisers = {{revisers}{revisers}},
 %
 % creator of derivative work [see 7.2.2 d), p. 25]
 engraver = {{engraver}{engraver}},
-photographerofanothercreatorswork = {{photographer of another creator’s work}{photographer of another creator’s work}},
+engravers = {{engravers}{engravers}},
+photographerofanothercreatorswork = {{photographer of another creator's work}{photographer of another creator's work}},
+photographersofanothercreatorswork = {{photographers of another creator's work}{photographers of another creator's work}},
 copyist = {{copyist}{copyist}},
+copyists = {{copyists}{copyists}},
 arranger = {{arranger}{arranger}},
+arrangers = {{arrangers}{arrangers}},
 reviewer = {{reviewer}{reviewer}},
+reviewers = {{reviewers}{reviewers}},
 commentator = {{commentator}{commentator}},
+commentators = {{commentators}{commentators}},
 annotator = {{annotator}{annotator}},
+annotators = {{annotators}{annotators}},
 %
 % publisher of manifestation [see 7.2.2 e), p. 26]
 publisher = {{publisher}{publisher}},
@@ -212,6 +255,7 @@ reprinted = {{reprinted}{reprinted}},
 copied = {{copied}{copied}},
 facsimiled = {{facsimiled}{facsimiled}},
 cast = {{cast}{cast}},
+firstcast = {{first cast}{first cast}},
 digitised = {{digitised}{digitised}},
 archived = {{archived}{archived}},
 %
@@ -234,18 +278,20 @@ pages = {{pages}{pp\adddot}},
 print = {{print}{print}},
 %
 % Identification of a PID [see 7.11.3 EXAMPLE 1, p. 59]
+% Network access [see 7.12.2.2, pp. 63–64]
 urlfrom = {{available from}{available from}},
 %
 % Availability and location [see 7.12, pp. 60–68]
 listedat = {{listed at}{listed at}},
+urlalso = {{also available from}{also available from}},
 seealso = {{see also}{see also}},
 archivedcopy = {{archived copy available from}{archived copy available from}},
 originallyfrom = {{originally available from}{originally available from}},
 digsurrogatefrom = {{digital surrogate available from}{digital surrogate available from}},
+physsurrogatefrom = {{physical surrogate available at}{phys\adddotspace surrogate available at}},
 surrogatefrom = {{surrogate available from}{surrogate available from}},
 digitalrecording = {{digital recording available from}{digital recording available from}},
 legaldepositfrom = {{legal deposit copy available from}{legal deposit copy available from}},
-distributor = {{distributor}{distributor}},
 %
 % Access restrictions [see 7.12.4, pp. 67–68]
 paywall = {{paywall}{paywall}},
@@ -266,12 +312,14 @@ annotationon = {{annotation on}{annot\adddotspace on}},
 abridgementof = {{abridgement of}{abridg\adddotspace of}},
 adaptationof = {{adaptation of}{adapt\adddotspace of}},
 reviewof = {{review of}{rev\adddotspace of}},
-physicalsurrogate = {{physical surrogate available at}{phys\adddotspace surrogate available at}},
 reproductionof = {{reproduction of}{reprod\adddotspace of}},
-digitalsurrogate = {{digital surrogate available from}{dig\adddotspace surrogate available from}},
 includes = {{includes}{includes}},
 performanceof = {{performance of}{perform\adddotspace of}},
 via = {{via}{via}},
+%
+% Patents [see 8.10, pp. 118–120]
+applicationdate = {{application date}{appl\adddot}},
+issuancedate = {{issuance date}{iss\adddot}},
 }
 
 

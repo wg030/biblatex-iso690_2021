@@ -1,0 +1,328 @@
+% newlang-iso690_2021.lbx
+
+
+\def\fileversion{0.2}
+\def\filedate{2023/10/25}
+
+\ProvidesFile{newlang-iso690_2021.lbx}
+  [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
+
+
+
+
+
+\InheritBibliographyExtras{}
+\InheritBibliographyStrings{}
+
+
+
+
+\NewBibliographyString{%
+%
+% Item [see 7.1.3.3 EAMPLE 4, p. 25] and
+% Item attributes [see 7.13.2 EXAMPLE 6, p. 69]
+cataloguedin,
+%
+% non obvious primary creators [see 7.2.2 EXAMPLE 1, p. 26]
+foreword,introduction,afterword,
+%
+% creator of work [see 7.2.2 a), p. 25]
+author,authors,composer,composers,songwriter,songwriters,librettist,librettists,
+lyricist,lyricists,mappingagency,surveyor,surveyors,cartographer,cartographers,
+systemdesignerofsoftware,systemdesignersofsoftware,holder,holders,patentee,
+patentees,patentapplicant,patentapplicants,inventor,inventors,artist,artists,
+photographer,photographers,directorofmotionpictures,directorsofmotionpictures,
+draughtsman,draughtsmen,graphicdesigner,graphicdesigners,architect,architects,
+%
+% expresser of created work [see 7.2.2 b), p. 25]
+conductor,conductors,performerofmusic,performersofmusic,performerofdrama,
+performersofdrama,translator,translators,softwareprogrammer,softwareprogrammers,
+engineer,engineers,
+%
+% reviser of work [see 7.2.2 c), p. 25]
+compiler,compilers,editor,editors,editor2,editor2s,reviser,revisers,
+%
+% creator of derivative work [see 7.2.2 d), p. 25]
+engraver,engravers,photographerofanothercreatorswork,
+photographersofanothercreatorswork,copyist,copyists,arranger,arrangers,reviewer,
+reviewers,commentator,commentators,annotator,
+%
+% publisher of manifestation [see 7.2.2 e), p. 26]
+publisher,onlineinformationprovider,productioncompany,
+%
+% distributor of manifestation [see 7.2.2 f), p. 26]
+distributor,issuingbody,onlinehost,
+%
+% cc specification for date [see 7.2.4.1 EXAMPLE 23, p. 29]
+cc,
+%
+% pseudonyms [see 7.2.7, p. 34]
+pseudonymof,stagenameof,pennameof,nicknameof,onlinehandleof,
+%
+% Anonymous works [see 7.2.8 EXAMPLE 2–4, p. 34]
+anonymous,
+%
+% Formats [see 7.5.1 EXAMPLE 1–3 + EXAMPLE 7–8, pp. 40–41]
+looseleaf,boardbook,paperback,kindleebook,audiobook,
+%
+% Digital file formats [see 7.5.3 EXAMPLE 5, p. 43]
+online,
+%
+% Uncertain, unknown, approximate or missing date [see 7.7.2.3 EXAMPLE 6, p. 47]
+nodate,
+%
+% Date of citation [see 7.7.4, p. 48]
+urlseen,
+%
+% Reissuance and surrogate dates [see 7.7.5, pp. 48–49;
+% 7.12.2.4 EXAMPLE 2, p. 65]
+conceived,reissued,reprinted,copied,facsimiled,cast,firstcast,digitised,
+archived,
+%
+% Publisher [see 7.8.2.2, p. 50]
+nopublisher,
+%
+% Unknown place [see 7.8.3.4 EXAMPLE 1, p. 53]
+nolocation,
+%
+% Numeration and pagination [see 7.9.2, p. 54; 7.14.9 EXAMPLE 2, p. 75;
+% 7.11.3 EXAMPLE 3, p. 59; 7.5.3 EXAMPLE 12, p. 43]
+volume,volumes,number,part,page,pages,
+%
+% Roles of international standard identifiers [see 7.11.2 EXAMPLE 8, p. 59]
+print,
+%
+% Identification of a PID [see 7.11.3 EXAMPLE 1, p. 59]
+urlfrom,
+%
+% Availability and location [see 7.12, pp. 60–68]
+listedat,urlalso,seealso,archivedcopy,originallyfrom,digsurrogatefrom,
+physsurrogatefrom,surrogatefrom,digitalrecording,legaldepositfrom,
+%
+% Access restrictions [see 7.12.4, pp. 67–68]
+paywall,metered,restricted,
+%
+% Item attributes [see 7.13.2, pp. 68–69]
+item,
+%
+% Event attributes [see 7.13.3, pp. 69–70]
+event,at,
+%
+% Relationship [see 7.14, pp. 70–76]
+translationof,commentaryon,annotationon,abridgementof,adaptationof,reviewof,
+reproductionof,includes,performanceof,via,
+% Patents [see 8.10, pp. 118–120]
+applicationdate,issuancedate,
+}
+
+
+
+
+\DeclareBibliographyStrings{%
+%
+% Item [see 7.1.3.3 EAMPLE 4, p. 25] and
+% Item attributes [see 7.13.2 EXAMPLE 6, p. 69]
+cataloguedin = {{}{}},
+%
+% non obvious primary creators [see 7.2.2 EXAMPLE 1, p. 26]
+foreword = {{}{}},
+introduction = {{}{}},
+afterword = {{}{}},
+%
+% creator of work [see 7.2.2 a), p. 25]
+author = {{}{}},
+authors = {{}{}},
+composer = {{}{}},
+composers = {{}{}},
+songwriter = {{}{}},
+songwriters = {{}{}},
+librettist = {{}{}},
+librettists = {{}{}}
+lyricist = {{}{}},
+lyricists = {{}{}},
+mappingagency = {{}{}},
+surveyor = {{}{}},
+surveyors = {{}{}},
+cartographer = {{}{}},
+cartographers = {{}{}},
+systemdesignerofsoftware = {{}{}},
+systemdesignersofsoftware = {{}{}},
+holder = {{}{}},
+holders = {{}{}},
+patentee = {{}{}},
+patentees = {{}{}},
+patentapplicant = {{}{}},
+patentapplicants = {{}{}},
+inventor = {{}{}},
+inventors = {{}{}},
+artist = {{}{}},
+artists = {{}{}},
+photographer = {{}{}},
+photographers = {{}{}},
+directorofmotionpictures = {{}{}},
+directorsofmotionpictures = {{}{}},
+draughtsman = {{}{}},
+draughtsmen = {{}{}},
+graphicdesigner = {{}{}},
+graphicdesigners = {{}{}},
+architect = {{}{}},
+architects = {{}{}},
+%
+% expresser of created work [see 7.2.2 b), p. 25]
+conductor = {{}{}},
+conductors = {{}{}},
+performerofmusic = {{}{}},
+performersofmusic = {{}{}},
+performerofdrama = {{}{}},
+performersofdrama = {{}{}},
+translator = {{}{}},
+translators = {{}{}},
+softwareprogrammer = {{}{}},
+softwareprogrammers = {{}{}},
+engineer = {{}{}},
+engineers = {{}{}},
+%
+% reviser of work [see 7.2.2 c), p. 25]
+compiler = {{}{}},
+compilers = {{}{}},
+editor = {{}{}},
+editors = {{}{}},
+editor2 = {{}{}},
+editor2s = {{}{}},
+reviser = {{}{}},
+revisers = {{}{}},
+%
+% creator of derivative work [see 7.2.2 d), p. 25]
+engraver = {{}{}},
+engravers = {{engravers}{engravers}},
+photographerofanothercreatorswork = {{}{}},
+photographersofanothercreatorswork = {{}{}},
+copyist = {{}{}},
+copyists = {{}{}},
+arranger = {{}{}},
+arrangers = {{}{}},
+reviewer = {{}{}},
+reviewers = {{}{}},
+commentator = {{}{}},
+commentators = {{}{}},
+annotator = {{}{}},
+annotators = {{}{}},
+%
+% publisher of manifestation [see 7.2.2 e), p. 26]
+publisher = {{}{}},
+onlineinformationprovider = {{}{}},
+productioncompany = {{}{}},
+%
+% distributor of manifestation [see 7.2.2 f), p. 26]
+distributor = {{}{}},
+issuingbody = {{}{}},
+onlinehost = {{}{}},
+%
+% cc specification for date [see 7.2.4.1 EXAMPLE 23, p. 29]
+cc = {{cc\adddot}{cc\adddot}},
+%
+% pseudonyms [see 7.2.7, p. 34]
+pseudonymof = {{}{}},
+stagenameof = {{}{}},
+pennameof = {{}{}},
+nicknameof = {{}{}},
+onlinehandleof = {{}{}},
+%
+% Anonymous works [see 7.2.8 EXAMPLE 2–4, p. 34]
+anonymous = {{}{}},
+%
+% Formats [see 7.5.1 EXAMPLE 1–3 + EXAMPLE 7–8, pp. 40–41]
+looseleaf = {{}{}},
+boardbook = {{}{}},
+paperback = {{}{}},
+kindleebook = {{}{}},
+audiobook = {{}{}},
+%
+% Digital file formats [see 7.5.3 EXAMPLE 5, p. 43]
+online = {{}{}},
+%
+% Uncertain, unknown, approximate or missing date [see 7.7.2.3 EXAMPLE 6, p. 47]
+nodate = {{}{s\adddot\addnbthinspace a\adddot}},
+%
+% Date of citation [see 7.7.4, p. 48]
+urlseen = {{}{}},
+%
+% Reissuance and surrogate dates [see 7.7.5, pp. 48–49;
+% 7.12.2.4 EXAMPLE 2, p. 65]
+conceived = {{}{}},
+reissued = {{}{}},
+reprinted = {{}{}},
+copied = {{}{}},
+facsimiled = {{}{}},
+cast = {{}{}},
+firstcast = {{}{}},
+digitised = {{}{}},
+archived = {{}{}},
+%
+% Publisher [see 7.8.2.2, p. 50]
+nopublisher = {{}{s\adddot\addnbthinspace n\adddot}},
+%
+% Unknown place [see 7.8.3.4 EXAMPLE 1, p. 53]
+nolocation = {{}{s\adddot\addnbthinspace l\adddot}},
+%
+% Numeration and pagination [see 7.9.2, p. 54; 7.14.9 EXAMPLE 2, p. 75;
+% 7.11.3 EXAMPLE 3, p. 59; 7.5.3 EXAMPLE 12, p. 43]
+volume = {{}{}},
+volumes = {{}{}},
+number = {{}{}},
+part = {{}{}},
+page = {{}{}},
+pages = {{}{}},
+%
+% Roles of international standard identifiers [see 7.11.2 EXAMPLE 8, p. 59]
+print = {{}{}},
+%
+% Identification of a PID [see 7.11.3 EXAMPLE 1, p. 59]
+% Network access [see 7.12.2.2, pp. 63–64]
+urlfrom = {{}{}},
+%
+% Availability and location [see 7.12, pp. 60–68]
+listedat = {{}{}},
+urlalso = {{}{}},
+seealso = {{}{}},
+archivedcopy = {{}{}},
+originallyfrom = {{}{}},
+digsurrogatefrom = {{}{}},
+physsurrogatefrom = {{}{}},
+surrogatefrom = {{}{}},
+digitalrecording = {{}{}},
+legaldepositfrom = {{}{}},
+%
+% Access restrictions [see 7.12.4, pp. 67–68]
+paywall = {{}{}},
+metered = {{}{}},
+restricted = {{}{}},
+%
+% Item attributes [see 7.13.2, pp. 68–69]
+item = {{}{}},
+%
+% Event attributes [see 7.13.3, pp. 69–70]
+event = {{}{}},
+at = {{}{}},
+%
+% Relationship [see 7.14, pp. 70–76]
+translationof = {{}{}},
+commentaryon = {{}{}},
+annotationon = {{}{}},
+abridgementof = {{}{}},
+adaptationof = {{}{}},
+reviewof = {{}{}},
+reproductionof = {{}{}},
+includes = {{}{}},
+performanceof = {{}{}},
+via = {{}{}},
+%
+% Patents [see 8.10, pp. 118–120]
+applicationdate = {{}{}},
+issuancedate = {{}{}},
+}
+
+
+
+
+\endinput

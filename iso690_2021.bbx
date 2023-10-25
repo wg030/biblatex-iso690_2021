@@ -1,8 +1,8 @@
 % iso690_2021.bbx
 
 
-\def\fileversion{0.1}
-\def\filedate{2023/07/16}
+\def\fileversion{0.2}
+\def\filedate{2023/10/25}
 
 \ProvidesFile{iso690_2021.bbx}
   [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
@@ -55,13 +55,23 @@
     \settoggle{bbx:publisherattr}{#1}%
     \isoblx@info@noline{Use publisher attribute in case of no location: #1}}
 
+\newtoggle{bbx:dateofapplattr}
+\DeclareBiblatexOption{global,type,entry}{dateofapplattr}[true]{
+    \settoggle{bbx:dateofapplattr}{#1}%
+    \isoblx@info@noline{Use date of application attribute: #1}}
+
+\newtoggle{bbx:dateofissattr}
+\DeclareBiblatexOption{global,type,entry}{dateofissattr}[false]{
+    \settoggle{bbx:dateofissattr}{#1}%
+    \isoblx@info@noline{Use date of issuance attribute: #1}}
+
 \newtoggle{bbx:bibacrosc}
 \DeclareBibliographyOption{bibacrosc}[true]{
     \settoggle{bbx:bibacrosc}{#1}%
     \isoblx@info@noline{Printing acronyms such as ISBN as textsc enabled: #1}}
 
 \newtoggle{bbx:noenddot}
-\DeclareBiblatexOption{global,type,entry}{noenddot}[true]{%
+\DeclareBibliographyOption{noenddot}[true]{%
   \settoggle{bbx:noenddot}{#1}%
   \isoblx@info@noline{Use no end dot for the bibliography entries: #1}}
 
@@ -75,10 +85,12 @@
     date=iso,                % [see 7.7.1, pp. 45–46]
     urldate=iso,             % [see 7.7.1, pp. 45–46; 7.7.4, p. 48]
     srrgtdate=iso,           % [see 7.7.5, pp. 48–49; 7.12.2.4 EXAMPLE 2, p. 65]
-    eventdate=iso,           % [see 7.13.3 EXAMPLE 8, p. 70]
+    eventdate=comp,          % [see 7.10.5 EXAMPLE, p. 56]
+    origdate=iso,            % [see 8.10.5 EXAMPLE, p. 120]
     %srrgtdateusetime=true,
     timezones=true,          % [see 7.12.2.4 EXAMPLE 2, p. 65]
-    seconds=true,
+    alldatesusetime=true,    % [see 8.15.3.5 EXAMPLE 3, p. 138]
+    seconds=true,            % [see 8.15.3.5 EXAMPLE 3, p. 138]
     datecirca=true,          % [see 7.7.2.3, p. 47]
     dateuncertain=true,      % [see 7.7.2.3, p. 47]
     maxbibnames=5,           % [see 7.2.6.2, p. 32]
@@ -90,6 +102,8 @@
     shownopublisher = false, % [see 7.8.2.2 EXAMPLE 3, p. 50]
     shownolocation = false,  % [see 7.8.3.4, p. 53]
     publisherattr = false,   % [see 7.8.2.2 EXAMPLE 4, p.50]
+    dateofapplattr = true,   % [see 8.10.4 EXAMPLE 1, p. 120]
+    dateofissattr = false,   % [see 8.10.3.4 EXAMPLE 1, p. 119; 8.10.4 EXAMPLE 1, p. 120]
     bibacrosc = false,       % [see 7.11.1 EXAMPLE 1, p. 57]
     %
     % Biblatex ISO 690-2021 Options for the German Version
@@ -104,24 +118,29 @@
 % TEST AREA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Result of mytest1: {edition}{subtitledelim}{authortype}
+\newbibmacro*{mytest1}
+{%
+    \printfield{edition}% % nonempty field
+    \setunit*{\printdelim{subtitledelim}}%
+    \printfield{eventtitle}% % empty field
+    \setunit*{\printdelim{multinamedelim}}%
+    \printfield{authortype}% % nonempty field
+}
+
+% Result of mytest: {edition}{multinamedelim}{authortype}
 \newbibmacro*{mytest}
 {%
-    \printtext{abc}
-    \setunit{\addcomma\space}
-    \setunit{\addcolon\space}
-    \printtext{xyz}
+    \printfield{edition}%
+    \setunit{\printdelim{subtitledelim}}%
+    \setunit{\printdelim{multinamedelim}}%
+    \printfield{authortype}%
 }
 
 %\newbibmacro*{list:plain}{}
 %\newbibmacro*{related}{}
 %\newbibmacro*{maintitle+title}{}
-
-% No seperator or a dot at the very end of an entry
-\renewcommand{\finentrypunct}{%
-  \iftoggle{bbx:noenddot}
-    {}
-    {\addperiod}%
-}
+%\setunit*{\multinamedelim}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -140,10 +159,12 @@
 \DeclareDelimFormat*{itemdelim}{\labelvaluepunct\space}
 \DeclareDelimFormat*{eventdelim}{\labelvaluepunct\space}
 \DeclareDelimFormat*{atdelim}{\labelvaluepunct\space}
+\DeclareDelimFormat*{datedelim}{\labelvaluepunct\space}
 %\DeclareDelimFormat*{relateddelim}{\labelvaluepunct\space}
 
 % Data element delimiter [see 7.1.2.4.2 b), p. 17]
 \newcommand*{\dataelementpunct}{\addperiod}
+\renewcommand{\finentrypunct}{\iftoggle{bbx:noenddot}{}{\dataelementpunct}}
 \DeclareDelimFormat*{organizationdelim}{\dataelementpunct\space}
 \DeclareDelimFormat*{eventtitledelim}{\dataelementpunct\space}
 \DeclareDelimFormat*{venueeventdatedelim}{\dataelementpunct\space}
@@ -191,13 +212,22 @@
 \DeclareDelimFormat*{locationpublisherdelim}{\adddataelementpunctB\space}
 \DeclareDelimFormat*{locationdatedelim}{\adddataelementpunctB\space}
 \DeclareDelimFormat*{publisherdatedelim}{\adddataelementpunctA\space}
+% [see 8.16.6 EXAMPLE, p. 142]
+\DeclareDelimFormat*{publisherinstitutiondelim}{\adddataelementpunctA\space}
 \DeclareDelimFormat*{venueconferencedatedelim}{\adddataelementpunctA\space}
 % [see 7.1.2.4.3 e) EXAMPLE 10, p. 20; and 7.9.1, pp. 53–54]
 \DeclareDelimFormat*{numerationandpaginationdelim}{\adddataelementpunctA\space}
+% [see 7.9.2 Text between EXAMPLE 5 and EXAMPLE 6, p. 54]
+\DeclareDelimFormat*{titlevolumesdelim}{\addspace}
+% [see 7.5.3, EXAMPLE 12, p. 43]
+\DeclareDelimFormat*{hostinfonumerationdelim}{\isdot\adddataelementpunctA\space}
 % [see 7.1.2.4.3 a) EXAMPLE 1, p. 19; 7.10.7 EXAMPLE 4, p. 57]
 \DeclareDelimFormat*{seriesnumerationdelim}{\adddataelementpunctA\space}
-% [see 8.11.1, p. 120; 8.11.4.1 p. 122]
-\DeclareDelimFormat*{reportidtitledelim}{\adddataelementpunctA\space}
+% [see 8.10.3.5 EXAMPLE 1, p. 120]
+\DeclareDelimFormat*{locationnumberdelim}{\addspace}
+% [see 8.11.4.1 EXAMPLE 1, p. 122]
+\DeclareDelimFormat*{seriestitlenumberdelim}{\addspace}
+\DeclareDelimFormat*{numbertitledelim}{\adddataelementpunctA\space}
 
 % WARNING: optional
 % Additional rules for value delimiter [see 7.1.2.4.3 f), p. 20]
@@ -209,7 +239,7 @@
 
 % WARNING: optional
 % Additional rules for attribute context delimiters [see 7.1.2.4.3 g), p. 20]
-\newcommand*{\addattributecontextlpunct}{()}
+\newcommand*{\addattributecontextlpunct}{(}
 \newcommand*{\addattributecontextrpunct}{)}
 
 % Value qualifier context delimiters [see 7.1.2.4.3 h), pp. 20–21]
@@ -236,10 +266,6 @@
 \DeclareDelimFormat*{volumeissueyeardelim}{\addspace}
 \DeclareDelimFormat*{issueyeardelim}{\addspace}
 %\DeclareDelimFormat*{identifierdelim}{\addspace}
-
-
-
-\DeclareDelimFormat*{hostinfopaginationdelim}{\isdot\addcomma\space}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -374,19 +400,19 @@
 
 \renewbibmacro*{editor}
 {%
-    \ifnameundef{editor}
-        {}
+    \ifboolexpr{not test {\ifnameundef{editor}}}
         {\DeclareNameAlias{editor}{sortname}%
         \printnames{editor}%
-        \iffieldundef{nameaddon}
-            {\setunit{\printdelim{creatorroledelim}}}
-            {\setunit{\printdelim{nameaddondelim}}}%
-        \printfield{nameaddon}%
+        \ifboolexpr{test {\ifnameundef{author}}}
+            {\iffieldundef{nameaddon}
+                {\setunit{\printdelim{creatorroledelim}}}
+                {\setunit{\printdelim{nameaddondelim}}}%
+            \printfield{nameaddon}}{}%
         \setunit{\printdelim{creatorroledelim}}%
         \usebibmacro{rolefromtype}{editor}%
         \clearname{editor}%
         \clearfield{editortype}%
-        \DeclareNameAlias{editor}{default}}%
+        \DeclareNameAlias{editor}{default}}{}%
 }
 
 
@@ -469,36 +495,58 @@
 % TITLE [see 7.3, pp. 35–38]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand*{\ifentrytypeisarticlelike}{%
+    \ifboolexpr{test {\ifentrytype{article}}
+    or test {\ifentrytype{review}}
+    or test {\ifentrytype{commentary}}
+    or test {\ifentrytype{suppperiodical}}
+    %or test {\ifentrytype{inproceedings}}
+    or test {\ifentrytype{conference}}}%
+}
+
+\newcommand*{\ifentrytypeisinbooklike}{%
+    \ifboolexpr{test {\ifentrytype{inbook}}
+    or test {\ifentrytype{bookinbook}}
+    or test {\ifentrytype{suppbook}}
+    or test {\ifentrytype{incollection}}
+    or test {\ifentrytype{suppcollection}}
+    or test {\ifentrytype{inreference}}
+    or test {\ifentrytype{inproceedings}}}%
+}
+
+
 \newbibmacro*{complete_title}[2]
 {%
     \ifboolexpr{not test {\iffieldundef{#1title}}}%
         {\printfield[#2]{#1title}%
         \ifboolexpr{not test {\iffieldundef{#1subtitle}}}
-            {\printtext[#2]{\setunit{\printdelim{subtitledelim}}%
-            \printfield{#1subtitle}}}
-            {}%
+            {\setunit{\printtext[#2]{\printdelim{subtitledelim}}}%
+            \printfield[#2]{#1subtitle}}{}%
         \ifboolexpr{not test {\iffieldundef{#1titleaddon}}}
             {\setunit{\printdelim{titleaddondelim}}%
-            \printtext{\mkbibbrackets{\printfield[#2]{#1titleaddon}}}}
-            {}}
+            \printtext{\mkbibbrackets{\printfield[#2]{#1titleaddon}}}}{}}
         % [see 7.1.2.4.3 EXAMPLE 27, p. 22]
         {\ifstrempty{#1}
             {\ifboolexpr{not test {\iffieldundef{titleaddon}}}
                 {\printtext{\mkbibbrackets{\printfield[titlecase]{titleaddon}}}}
-                {}}
-            {}}%
+                {}}{}%
+        }%
 }
 
 
 
 \renewbibmacro*{title}
 {%
-    \ifboolexpr{not test {\ifentrytype{article}} and
-                not test {\ifentrytype{inbook}}}%
+    \ifboolexpr{not test {\ifentrytypeisarticlelike} and
+                not test {\ifentrytypeisinbooklike}}%
         % [see 7.1.2.4.3 j), p. 21; 7.3.10, pp. 37–38]
         {\usebibmacro{complete_title}{}{emph}}
         % [see 7.1.2.4.3 j) EXAMPLE 22, p. 21; 7.4.2.1 EXAMPLE 6, p. 39]
         {\usebibmacro{complete_title}{}{titlecase}}%
+    % [see 7.9.2 Text between EXAMPLE 5 and EXAMPLE 6, p. 54]
+    \iffieldundef{maintitle}
+        {\setunit*{\printdelim{titlevolumesdelim}}%
+        \usebibmacro{multiple_print_volumes}}{}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -528,70 +576,57 @@
     \endgroup%
 }
 
+\DeclareFieldFormat{braces}{\mkbibbraces{#1}}
+
+
 
 \renewbibmacro*{in:}
 {%
-    \ifboolexpr{not test {\iffieldundef{booktitle}}
-    or not test {\iffieldundef{maintitle}}}
-        {\bibstring{in}%
-        \printunit{\intitlepunct}}
-        {}%
+    \bibstring{in}%
+    \printunit{\intitlepunct}%
 }
+
+
 
 \newbibmacro*{host_creators}
 {%
     \ifboolexpr{not test {\ifnameundef{bookauthor}}}
         {\printnames{bookauthor}}
-        {}%
+        {\ifboolexpr{not test {\ifnameundef{editor}}
+        and not test {\ifnameundef{author}}}
+            {\usebibmacro{editor}}{}}%
 }
+
+
 
 \newbibmacro*{host_title}
 {%
-    \ifentrytype{article}
+    \ifentrytypeisarticlelike
         {\usebibmacro{complete_title}{journal}{emph}%
         \setunit{\printdelim{journalissuedelim}}%
-        \usebibmacro{complete_title}{issue}{emph}}
-        {}%
+        \usebibmacro{complete_title}{issue}{emph}}{}%
     %
-    \ifboolexpr{test {\ifentrytype{misc}}
-    or test {\ifentrytype{inbook}} or test {\ifentrytype{bookinbook}}
-    or test {\ifentrytype{suppbook}} or test {\ifentrytype{incollection}}
-    or test {\ifentrytype{suppcollection}} or test {\ifentrytype{inreference}}}
-        {\usebibmacro{complete_title}{book}{emph}}
-        {}%
-}
-
-\DeclareFieldFormat*{mainvolume}{\bibsstring{volume}\addnbspace#1}
-
-\newbibmacro*{host_series_and_numeration}
-{%
-    \printfield[titlecase]{mainseries}%
-    \setunit*{\printdelim{seriesnumerationdelim}}%
-    \printfield{mainvolume}%
+    \ifentrytypeisinbooklike
+        {\usebibmacro{complete_title}{book}{emph}}{}%
+    %
+    \ifboolexpr{not test {\ifentrytypeisarticlelike}
+    and not test {\ifentrytypeisinbooklike}}
+        {\usebibmacro{complete_title}{book}{titlecase}}{}%
 }
 
 
 
-\newbibmacro*{host_info_resource}
+\newbibmacro*{host_info+numeration_and_pagination}
 {%
-    \ifnameundef{bookauthor}
-        {}
-        {\usebibmacro{host_creators}%
-        \setunit*{\printdelim{nametitledelim}}\newblock}%
-    \usebibmacro{host_title}%
-    \newunit%
-    \usebibmacro{complete_title}{main}{titlecase}%
-    \newunit\newblock
-    \usebibmacro{host_series_and_numeration}%
-}
-
-\newbibmacro*{component_parts}
-{%
-    % [see 7.4.2.1 EXAMPLE 6, p. 39; 7.1.2.4.3 EXAMPLE 26, p. 22]
-    \ifboolexpr{test {\iffieldundef{maintitle}}
-    and test {\iffieldundef{mainseries}}}
-        {\usebibmacro{host_info_resource}}
-        {\printtext{\mkbibbraces{\usebibmacro{host_info_resource}}}}%
+    \ifboolexpr{not test {\iffieldundef{booktitle}}}
+        {\usebibmacro{in:}%
+        \usebibmacro{host_creators}%
+        \setunit*{\printdelim{nametitledelim}}\newblock
+        \usebibmacro{host_title}
+        \iffieldundef{maintitle}
+            {\setunit*{\printdelim{hostinfonumerationdelim}}}{\newunit}%
+        \newblock}{}%
+    \usebibmacro{series+numeration_and_pagination}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -632,7 +667,12 @@
 % EDITION AND VERSION [see 7.6, pp. 43–45]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DeclareFieldFormat*{version}{#1}
+\DeclareFieldFormat*{version}
+{%
+    \ifnumeral{#1}
+        {\bibstring{version}\addnbspace#1}
+        {#1}%
+}
 
 \newbibmacro*{edition_and_version}
 {%
@@ -767,6 +807,21 @@
 % PRODUCTION INFORMATION [see 7.8, pp. 49–53]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\DeclareListFormat*{listd}{#1\addspace\mkbibparens{\bibstring{distributor}}}
+
+% [see 7.8.2.4, p. 50]
+\newbibmacro*{distributor_or_online_host}
+{%
+    \ifboolexpr{not test {\iflistundef{listd}}}
+        {% [see 8.14.6 EXAMPLE 10, p. 135]
+        \usebibmacro{in:}%
+        \printlist{listd}%
+        \setunit*{\printdelim{organizationdelim}}%
+        \printlist{organization}}{}%
+}
+
+
+
 \newcounter{i}
 \DeclareListFormat*{singlelocation}{#1}
 \DeclareListFormat*{singlepublisher}{#1}
@@ -775,20 +830,19 @@
 {%
     \ifboolexpr{test {\iflistundef{location}}
     and test {\iflistundef{publisher}}}
-        {\iffieldundef{eventyear}
-            {\ifentrytype{article}{}{\usebibmacro{date}}}
+        {\ifentrytype{performance}
             % [see 7.13.3 EXAMPLE 8, p. 70]
-            {}}
+            {}
+            {\ifentrytypeisarticlelike{}{\usebibmacro{date}}}}
         {}%
     \ifboolexpr{test {\iflistundef{location}}
     and not test {\iflistundef{publisher}}}
         {\iftoggle{bbx:publisherattr}
             % [see 7.8.2.2 EXAMPLE 4, p. 50]
-            {\bibstring{publisher}\printdelim{publisherdelim}%
-            \printlist{publisher}}
-            {\printlist{publisher}}%
+            {\bibstring{publisher}\printdelim{publisherdelim}}{}%
+        \printlist{publisher}%
         \setunit*{\printdelim{publisherdatedelim}}%
-        \ifentrytype{article}{}{\usebibmacro{date}}}
+        \ifentrytypeisarticlelike{}{\usebibmacro{date}}}
         {}%
     % [see 7.8.3.3 EXAMPLE 1, p. 53]
     \ifboolexpr{not test {\iflistundef{location}}
@@ -799,7 +853,7 @@
             {\setunit*{\printdelim{locationpublisherdelim}}}%
         \printlist{publisher}%
         \setunit*{\printdelim{publisherdatedelim}}%
-        \ifentrytype{article}{}{\usebibmacro{date}}}
+        \ifentrytypeisarticlelike{}{\usebibmacro{date}}}
         {}%
     \ifboolexpr{not test {\iflistundef{location}}
     and test {\ifnumequal{\value{location}}{\value{publisher}}}}
@@ -816,7 +870,7 @@
             \setunit{\printdelim{locationpublisherdelim}}%
             \printlist[singlepublisher][2-2]{publisher}%
             \setunit{\printdelim{addvaldelim}}%
-            \ifentrytype{article}{}{\usebibmacro{date}}}
+            \ifentrytypeisarticlelike{}{\usebibmacro{date}}}
             % [see 7.8.3.3, p. 53]
             {\setcounter{i}{1}%
             \whileboolexpr{test {\ifnumless{\value{i}}{\value{location}+1}}}
@@ -828,11 +882,12 @@
             \iflistundef{publisher}
                 {\newunit}
                 {\setunit{\printdelim{publisherdatedelim}}}%
-            \ifentrytype{article}{}{\usebibmacro{date}}}}
+            \ifentrytypeisarticlelike{}{\usebibmacro{date}}}}
         {}%
-    % [see 7.8.2.6 EXAMPLE 1, p. 51]
-    \setunit*{\printdelim{organizationdelim}}%
-    \printlist{organization}%
+    \iflistundef{listd}
+        {% [see 7.8.2.6 EXAMPLE 1, p. 51]
+        \setunit*{\printdelim{organizationdelim}}%
+        \printlist{organization}}{}%
     \setunit*{\printdelim{organizationdelim}}%
     \printlist{institution}%
 }
@@ -847,26 +902,27 @@
 % NUMERATION AND PAGINATION  [see 7.9, pp. 53–54]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\DeclareFieldFormat*{volume}{\bibsstring{volume}\addnbspace#1}
+\DeclareFieldFormat*{volume}
+{%
+    \hasfieldannotation[volume][type]
+        {\printtext{\getfieldannotation[volume][type]}}
+        {\bibsstring{volume}}%
+    \addnbspace#1%
+}
 \DeclareFieldFormat*{issue}{#1}
-%\DeclareFieldFormat*{number}{\bibsstring{number}\addnbspace#1}
-\DeclareFieldFormat*{number}{%
-    \ifnumeral{#1}{\bibsstring{number}\addnbspace#1}{#1}}
-\DeclareFieldFormat*{part}{\bibsstring{part}\addnbspace#1}
-\xpatchcmd*{\blx@mkpageprefix}{\bibstring}{\bibncpsstring}{}{}
-\DeclareFieldFormat*{pages}{\mkpageprefix[bookpagination]{#1}}
+\DeclareFieldFormat*{part}{%
+    \ifnumeral{#1}{\bibsstring{part}\addnbspace#1}{#1}}
 
-% [see 7.9.2 EXAMPLE 1 to 2, p. 54; 8.4.3 EXAMPLE 9, p. 89;
-%  7.11.3 EXAMPLE 3, p. 59]
-\newbibmacro*{numeration_and_pagination}
+\newbibmacro*{numeration_volume}
 {%
     \printfield{volume}%
     \setunit*{\printdelim{volumeissueyeardelim}}%
-    \ifentrytype{article}
+    \ifentrytypeisarticlelike
         {\iffieldundef{volume}
             {\printfield{issue}%
             \setunit*{\printdelim{issueyeardelim}}%
             \printdate}
+            % [see 8.4.3 EXAMPLE 9, p. 89]
             {\printtext{\mkbibparens{\printfield{issue}%
             \setunit*{\printdelim{issueyeardelim}}%
             \iffieldundef{endyear}
@@ -874,14 +930,70 @@
                 {\printfield{endyear}}}}}%
         }
         {\iffieldundef{issue}{}{\printtext{\mkbibparens{\printfield{issue}}}}}%
-    \setunit*{\printdelim{numerationandpaginationdelim}}%
+        \setunit*{\printdelim{numerationandpaginationdelim}}%
+        \printfield{part}%
+}
+
+
+
+%\DeclareFieldFormat*{number}{\bibsstring{number}\addnbspace#1}
+\DeclareFieldFormat*{number}{%
+    \ifnumeral{#1}{\bibsstring{number}\addnbspace#1}{#1}}
+
+\newbibmacro*{numeration_number}
+{%
     \printfield{number}%
+}
+
+
+
+\newbibmacro*{numeration}
+{%
+    \usebibmacro{numeration_volume}%
     \setunit*{\printdelim{numerationandpaginationdelim}}%
-    \printfield{part}%
-    \setunit*{\printdelim{numerationandpaginationdelim}}%
+    \usebibmacro{numeration_number}%
+}
+
+
+
+\xpatchcmd*{\blx@mkpageprefix}{\bibstring}{\bibncpsstring}{}{%
+\PackageWarning{biblatex-iso690_2021}%
+{Patching '\\blx@mkpageprefix' command failed.}}
+\DeclareFieldFormat*{pages}{\mkpageprefix[bookpagination]{#1}}
+
+\newbibmacro*{page_number_range}
+{%
+    % [see 8.3.2 EXAMPLE 3, p. 86]
     \printfield{pages}%
     \setunit*{\printdelim{numerationandpaginationdelim}}%
+    % [7.11.3 EXAMPLE 3, p. 59]
     \printfield{eid}%
+}
+
+
+
+% [see 7.9.2 Text between EXAMPLE 5 and EXAMPLE 6, p. 54]
+\DeclareFieldFormat*{volumes}
+{%
+    \mkbibbrackets{#1\addnbspace
+    \hasfieldannotation[volume][type]
+        {\printtext{\getfieldannotation[volumes][type]}}
+        {\bibsstring{volumes}}}%
+}
+
+\newbibmacro*{multiple_print_volumes}
+{%
+    \printfield{volumes}%
+}
+
+
+
+% [see 7.9.2 EXAMPLE 1 to 2, p. 54]
+\newbibmacro*{numeration_and_pagination}
+{%
+    \usebibmacro{numeration}%
+    \setunit*{\printdelim{numerationandpaginationdelim}}%
+    \usebibmacro{page_number_range}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -897,6 +1009,7 @@
 % [see 7.10.5, p. 56]
 \newbibmacro*{conference_information}
 {%
+    % [see 7.10.5 EXAMPLE, p. 56]
     \usebibmacro{complete_title}{event}{emph}%
     \setunit*{\printdelim{eventtitledelim}}%
     \printfield{venue}%
@@ -906,10 +1019,52 @@
 
 
 
+\newbibmacro*{series_title}
+{%
+    % [see 7.9.2 Text between EXAMPLE 5 and EXAMPLE 6, p. 54]
+    \ifboolexpr{not test {\iffieldundef{maintitle}}}
+        {\usebibmacro{complete_title}{main}{titlecase}%
+        \setunit*{\printdelim{titlevolumesdelim}}%
+        \usebibmacro{multiple_print_volumes}}{}%
+}
+
+
+
+\newbibmacro*{series_title_and_number}
+{%
+    \ifboolexpr{not test {\iffieldundef{maintitle}}}
+        {\usebibmacro{in:}%
+        \ifboolexpr{not test {\iffieldundef{volume}}
+        and not test {\iffieldundef{number}}}
+            {\printtext{\mkbibbraces{%
+            \usebibmacro{series_title}%
+            \setunit{\printdelim{numerationandpaginationdelim}}%
+            \usebibmacro{numeration_volume}}}}
+            {\usebibmacro{series_title}%
+            \setunit{\printdelim{numerationandpaginationdelim}}%
+            \usebibmacro{numeration_volume}}%
+        \setunit{\printdelim{numerationandpaginationdelim}}%
+        \usebibmacro{numeration_number}}{}%
+}
+
+
+
 \newbibmacro*{serials_and_series}
 {%
     % [see 7.2.4.1 EXAMPLE 21, p. 29]
     \printfield[titlecase]{series}%
+}
+
+% [see 7.11.2 EXAMPLE 8, p. 59]
+\newbibmacro*{series+numeration_and_pagination}
+{%
+    \ifboolexpr{not test {\iffieldundef{maintitle}}}
+        {\usebibmacro{series_title_and_number}%
+        \setunit*{\printdelim{numerationandpaginationdelim}}%
+        \usebibmacro{page_number_range}}
+        {\usebibmacro{serials_and_series}%
+        \setunit*{\printdelim{seriesnumerationdelim}}%
+        \usebibmacro{numeration_and_pagination}}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -992,8 +1147,9 @@
 }
 
 \DeclareFieldFormat*{eprint}{%
-    \iffieldundef{eprinttype}{eprint}{\thefield{eprinttype}}%
-    \addcomma\space%
+    \iffieldundef{eprinttype}
+        {}
+        {\thefield{eprinttype}\addcomma\space}%
     \ifboolexpr{test \ifhyperref}
         {\ifboolexpr{not bool {Hy@draft}}
             {\url{#1}}
@@ -1050,9 +1206,25 @@
             {\nolinkurl{#1}}}
         {\nolinkurl{#1}}%
 }
+\DeclareFieldFormat*{eprint:googlepatents}{%
+    Google\addspace Patents\addspace\mkbibparens{\bibstring{distributor}}\addcomma\space%
+    \ifboolexpr{test \ifhyperref}
+        {\ifboolexpr{not bool {Hy@draft}}
+            {\url{#1}}
+            {\nolinkurl{#1}}}
+        {\nolinkurl{#1}}%
+}
 % [see 7.14.8 EXAMPLE 12, p. 75]
 \DeclareFieldFormat*{eprint:wikimedia}{%
     Wikimedia\addspace\mkbibparens{\bibstring{distributor}}\addcomma\space%
+    \ifboolexpr{test \ifhyperref}
+        {\ifboolexpr{not bool {Hy@draft}}
+            {\url{#1}}
+            {\nolinkurl{#1}}}
+        {\nolinkurl{#1}}%
+}
+\DeclareFieldFormat*{eprint:coursera}{%
+    Coursera\addspace\mkbibparens{\bibstring{distributor}}\addcomma\space%
     \ifboolexpr{test \ifhyperref}
         {\ifboolexpr{not bool {Hy@draft}}
             {\url{#1}}
@@ -1094,17 +1266,10 @@
 \DeclareFieldAlias{eprint:PubMed}{eprint:pubmed}
 \DeclareFieldAlias{eprint:Google Books}{eprint:googlebooks}
 \DeclareFieldAlias{eprint:Wikimedia}{eprint:wikimedia}
+\DeclareFieldAlias{eprint:Coursera}{eprint:coursera}
 \DeclareFieldAlias{eprint:YouTube}{eprint:youtube}
 \DeclareFieldAlias{eprint:Vimeo}{eprint:vimeo}
 \DeclareFieldAlias{eprint:Internet Archive}{eprint:internetarchive}
-
-\DeclareFieldFormat*{url}{%
-    \ifboolexpr{test \ifhyperref}
-        {\ifboolexpr{not bool {Hy@draft}}
-            {\url{#1}}
-            {\nolinkurl{#1}}}
-        {\nolinkurl{#1}}%
-}
 
 
 
@@ -1112,18 +1277,11 @@
 \newbibmacro*{persistent_identifiers}{%
     % [see 7.11.3 EXAMPLE 1, p. 59]
     \ifboolexpr{not test {\iffieldundef{doi}}}
-        {\bibstring{urlfrom}%
+        {\usebibmacro{availability:doi}%
         \printdelim{piddelim}%
         \printfield{doi}%
         \newunit%
         \usebibmacro{access_restrictions:doi}}{}%
-    \newunit%
-    \ifboolexpr{not test {\iffieldundef{url}}}
-        {\usebibmacro{availability:url}%
-        \printdelim{piddelim}%
-        \printfield{url}%
-        \newunit%
-        \usebibmacro{access_restrictions:url}}{}%
     \newunit%
     \ifboolexpr{not test {\iffieldundef{eprint}}}
         {\usebibmacro{availability:eprint}%
@@ -1140,11 +1298,8 @@
     \usebibmacro{international_standard_identifiers}%
     \newunit%
     \usebibmacro{persistent_identifiers}%
-    % [see 7.11.1 EXAMPLE 2 + EXAMPLE 3, p. 59]
     \newunit%
-    \usebibmacro{srrgtdate}%
-    \newunit%
-    \usebibmacro{urldate}%
+    \usebibmacro{network_location_and_access}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1165,6 +1320,17 @@
     {}%
 }
 
+
+% [see 7.12.2, pp. 63–66]
+\newbibmacro*{availability:doi}{%
+    \hasfieldannotation[doi][avail]
+        %{\ifbibxstring{\getfieldannotation[doi][avail]} % doesn't work!?!
+        {\ifbibxstring{\abx@annotation@literal@field@doi@avail}
+            %{\bibstring{\getfieldannotation[doi][avail]}} % doesn't work!?!
+            {\bibstring{\abx@annotation@literal@field@doi@avail}}
+            {\printtext{\getfieldannotation[doi][avail]}}}
+        {\bibstring{urlfrom}}
+}
 
 % [see 7.12.2, pp. 63–66]
 \newbibmacro*{availability:eprint}{%
@@ -1202,6 +1368,18 @@
 }
 
 % [see 7.12.4, pp. 67–68]
+\newbibmacro*{access_restrictions:eprint}{%
+    \hasfieldannotation[eprint][access]
+        %{\ifbibxstring{\getfieldannotation[eprint][access]} % doesn't work!?!
+        {\ifbibxstring{\abx@annotation@literal@field@eprint@access}
+            %\bibstring{\getfieldannotation[eprint][access]} % doesn't work!?!
+            {\printtext{\mkbibbrackets{\bibncpstring{%
+            \abx@annotation@literal@field@eprint@access}}}}
+            {\printtext{\mkbibbrackets{\getfieldannotation[eprint][access]}}}}
+        {}%
+}
+
+% [see 7.12.4, pp. 67–68]
 \newbibmacro*{access_restrictions:url}{%
     \hasfieldannotation[url][access]
         %{\ifbibxstring{\getfieldannotation[url][access]} % doesn't work!?!
@@ -1213,16 +1391,30 @@
         {}%
 }
 
-% [see 7.12.4, pp. 67–68]
-\newbibmacro*{access_restrictions:eprint}{%
-    \hasfieldannotation[eprint][access]
-        %{\ifbibxstring{\getfieldannotation[eprint][access]} % doesn't work!?!
-        {\ifbibxstring{\abx@annotation@literal@field@eprint@access}
-            %\bibstring{\getfieldannotation[eprint][access]} % doesn't work!?!
-            {\printtext{\mkbibbrackets{\bibncpstring{%
-            \abx@annotation@literal@field@eprint@access}}}}
-            {\printtext{\mkbibbrackets{\getfieldannotation[eprint][access]}}}}
-        {}%
+
+\DeclareFieldFormat*{url}{%
+    \ifboolexpr{test \ifhyperref}
+        {\ifboolexpr{not bool {Hy@draft}}
+            {\url{#1}}
+            {\nolinkurl{#1}}}
+        {\nolinkurl{#1}}%
+}
+
+
+
+% [see 7.12.2, p. 63–66]
+\newbibmacro*{network_location_and_access}{%
+    \ifboolexpr{not test {\iffieldundef{url}}}
+        {\usebibmacro{availability:url}%
+        \printdelim{piddelim}%
+        \printfield{url}%
+        \newunit%
+        \usebibmacro{access_restrictions:url}}{}%
+    % [see 7.11.1 EXAMPLE 2 + EXAMPLE 3, p. 59]
+    \newunit%
+    \usebibmacro{srrgtdate}%
+    \newunit%
+    \usebibmacro{urldate}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1285,6 +1477,8 @@
     \usebibmacro{complete_title}{}{titlecase}%
     \newunit\newblock
     \usebibmacro{production_information}%
+    \newunit\newblock
+    \usebibmacro{relationship}%
     \usebibmacro{finrelentry}%
 }
 
@@ -1294,15 +1488,11 @@
     \setunit{\printdelim{nametitledelim}}\newblock
     \usebibmacro{complete_title}{}{titlecase}%
     \newunit\newblock
-    \usebibmacro{component_parts}%
-    \iffieldundef{series}
-        {\setunit{\printdelim{hostinfopaginationdelim}}}
-        {\newunit\newblock
-        \usebibmacro{serials_and_series}%
-        \setunit{\printdelim{seriesnumerationdelim}}}%
-    \usebibmacro{numeration_and_pagination}%
+    \usebibmacro{host_info+numeration_and_pagination}%
     \newunit\newblock
     \usebibmacro{production_information}%
+    \newunit\newblock
+    \usebibmacro{relationship}%
     \usebibmacro{finrelentry}%
 }
 
@@ -1320,22 +1510,18 @@
     \newunit\newblock
     \usebibmacro{subsidiary_creators}%
     \newunit\newblock
-    \usebibmacro{component_parts}%
-    \iffieldundef{series}
-        {\setunit{\printdelim{hostinfopaginationdelim}}}
-        {\newunit\newblock
-        \usebibmacro{serials_and_series}%
-        \setunit{\printdelim{seriesnumerationdelim}}}%
-    \usebibmacro{numeration_and_pagination}%
+    \usebibmacro{host_info+numeration_and_pagination}%
     \newunit\newblock
     \usebibmacro{production_information}%
+    \newunit\newblock
+    \usebibmacro{distributor_or_online_host}%
     \newunit\newblock
     \usebibmacro{identifiers}%
     \newunit\newblock
     \usebibmacro{item_and_events_attributes}%
     \newunit\newblock
-    %\usebibmacro{relationship}%
-    %\newunit\newblock
+    \usebibmacro{relationship}%
+    \newunit\newblock
     \usebibmacro{other_elements_2}%
     \usebibmacro{finrelentry}%
 }
@@ -1460,8 +1646,6 @@
 
 \newbibmacro*{other_elements_1}
 {%
-    %\printfield{type}%
-    %\newunit%
     \ifboolexpr{test {\iffieldundef{venue}} and test {\iffieldundef{eventtitle}}
     and test {\iffieldundef{eventyear}}
     and not test {\iffieldannotation[note]{item}}}
@@ -1486,6 +1670,245 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [see 8, pp. 81–143]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PATENTS [see 8.10, pp. 118–120]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareLabelname[patent]{%
+    \field{holder}
+    \field{shortauthor}
+    \field{author}
+    \field{shorteditor}
+    \field{editor}
+    \field{translator}
+}
+
+\DeclareLabeldate[patent]{%
+    \field{origdate}
+    \field{date}
+    \field{year}
+    \field{eventdate}
+    \field{urldate}
+    \literal{nodate}
+}
+
+\DeclareSortingTemplate{nty}{
+    \sort{
+        \field{presort}
+    }
+    \sort[final]{
+        \field{sortkey}
+    }
+    \sort{
+        \field{sortname}
+        \field{holder}
+        \field{author}
+        \field{editor}
+        \field{translator}
+        \field{sorttitle}
+        \field{title}
+    }
+    \sort{
+        \field{sorttitle}
+        \field{title}
+    }
+    \sort{
+        \field{sortyear}
+        \field{origyear}
+        \field{year}
+    }
+    \sort{
+        \field{volume}
+        \literal{0}
+    }
+}
+
+
+
+
+\DeclareNameAlias[patent]{holder}{sortname}
+\DeclareNameAlias[patent]{author}{given-family}
+\DeclareStyleSourcemap{
+    \maps[datatype=bibtex]{
+        \map{
+            \pertype{patent}
+            \step[fieldsource=author]
+            \step[fieldset=holder, origfieldval]
+        }
+    }
+}
+
+
+
+
+\newbibmacro*{patent:holder}
+{%
+    \ifnameundef{holder}
+        {}
+        {\printnames{holder}%
+        \iffieldundef{nameaddon}{}
+            {\setunit{\printdelim{nameaddondelim}}%
+            \printfield{nameaddon}}%
+        %
+        \printnames{namea}%
+        \setunit*{\printdelim{creatorroledelim}}%
+        \usebibmacro{rolefromtype}{namea}%
+        \setunit*{\printdelim{multinamedelim}}%
+        %
+        \printnames{nameb}%
+        \setunit*{\printdelim{creatorroledelim}}%
+        \usebibmacro{rolefromtype}{nameb}%
+        \setunit*{\printdelim{multinamedelim}}%
+        %
+        \printnames{namec}%
+        \setunit*{\printdelim{creatorroledelim}}%
+        \usebibmacro{rolefromtype}{namec}%
+        \setunit*{\printdelim{multinamedelim}}}%
+}
+
+
+% [see 8.10.2, pp. 118–119]
+\newbibmacro*{patent_applicants}
+{%
+    \ifboolexpr{not test {\ifnameundef{holder}}}
+        {\usebibmacro{patent:holder}}
+        {\usebibmacro{author}}%
+}
+
+
+% [see 8.10.3.3, p. 119]
+\newbibmacro*{patent:subsidiary_creators}
+{%
+    \ifboolexpr{not test {\ifnameundef{holder}}}
+        {\printnames{author}%
+        \setunit*{\printdelim{creatorroledelim}}%
+        \usebibmacro{rolefromtype}{author}%
+        \setunit*{\printdelim{multinamedelim}}}
+        {}%
+    %
+    \printnames{editor}%
+    \setunit*{\printdelim{creatorroledelim}}%
+    \usebibmacro{rolefromtype}{editor}%
+    \setunit*{\printdelim{addvaldelim}}%
+    %
+    \printnames{editora}%
+    \setunit*{\printdelim{creatorroledelim}}%
+    \usebibmacro{rolefromtype}{editora}%
+    \setunit*{\printdelim{addvaldelim}}%
+    %
+    \printnames{editorb}%
+    \setunit*{\printdelim{creatorroledelim}}%
+    \usebibmacro{rolefromtype}{editorb}%
+    \setunit*{\printdelim{addvaldelim}}%
+    %
+    \printnames{editorc}%
+    \setunit*{\printdelim{creatorroledelim}}%
+    \usebibmacro{rolefromtype}{editorc}%
+}
+
+
+
+% [see 8.10.4, p. 120]
+\newbibmacro*{date_of_application}
+{%
+    \iftoggle{bbx:dateofapplattr}
+        {\bibstring{applicationdate}\printdelim{datedelim}}{}%
+    \iffieldundef{origyear}
+        {\usebibmacro{date}}
+        {\printorigdate}%
+}
+
+
+% [see 8.10.5, p. 120]
+\newbibmacro*{date_of_issuance}
+{%
+    \iffieldundef{origyear}
+        {}
+        {\iftoggle{bbx:dateofissattr}
+            {\bibstring{issuancedate}\printdelim{datedelim}}{}%
+        \usebibmacro{date}}%
+}
+
+
+
+\xpatchlistformat[patent]{location}{\bibstring}{\bibsstring}{}{%
+\PackageWarning{biblatex-iso690_2021}%
+{Patching ListFormat 'location' failed.}}
+\DeclareFieldFormat[patent]{number}{#1}
+
+% [see 8.10.3.5, p. 120]
+\newbibmacro*{patent_number}
+{%
+    \printlist{location}%
+    \setunit*{\printdelim{locationnumberdelim}}%
+    \printfield{number}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REPORTS IN SERIES AND SIMILAR INFORMATION RESOURCES [see 8.11, pp. 120–125]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% [see 8.11.3.1, p. 121]
+\newbibmacro*{report_series_title}
+{%
+    \printfield[titlecase]{series}%
+}
+
+
+\DeclareFieldFormat[report]{number}{#1}
+
+% [see 8.11.1, p. 120]
+\newbibmacro*{report_number}
+{%
+    \printfield{number}%
+}
+
+
+% [see 8.11.1, p. 120]
+\newbibmacro*{report:series_title_and_number}
+{%
+    \usebibmacro{report_series_title}%
+    \setunit*{\printdelim{seriestitlenumberdelim}}%
+    \usebibmacro{report_number}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UNPUBLISHED INFORMATION RESOURCES [see 8.16, pp. 140–143]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% [see 8.16.6 EXAMPLE, p. 142]
+\newbibmacro*{thesis:production_information}
+{%
+    \printlist{location}%
+    \setunit*{\printdelim{locationpublisherdelim}}%
+    \ifboolexpr{not test {\iflistundef{publisher}}}
+        {\iftoggle{bbx:publisherattr}
+            % [see 7.8.2.2 EXAMPLE 4, p. 50]
+            {\bibstring{publisher}\printdelim{publisherdelim}}{}%
+        \printlist{publisher}%
+        \setunit{\printdelim{publisherinstitutiondelim}}}
+        {}%
+    \printlist{institution}%
+    \setunit{\printdelim{publisherdatedelim}}%
+    \usebibmacro{date}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 
@@ -1512,11 +1935,11 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \setunit*{\printdelim{seriesnumerationdelim}}%
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{series+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1560,7 +1983,10 @@
   \usebibmacro{other_elements_1}%
   \newunit\newblock
   \usebibmacro{in:}%
-  \usebibmacro{component_parts}%
+  \printtext[braces]{%
+  \usebibmacro{host_creators}%
+  \setunit*{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{host_title}%
   \newunit\newblock
   \usebibmacro{format_and_resource_type}%
   \newunit\newblock
@@ -1568,13 +1994,20 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \newunit\newblock
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{series_title_and_number}%
   \newunit\newblock
   \usebibmacro{production_information}%
   \newunit\newblock
-  \usebibmacro{identifiers}%
+  \usebibmacro{international_standard_identifiers}%
+  \usebibmacro{finentry}}%
+  \setunit{\printdelim{numerationandpaginationdelim}}\newblock
+  \usebibmacro{page_number_range}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
+  \newunit\newblock
+  \usebibmacro{persistent_identifiers}%
+  \newunit\newblock
+  \usebibmacro{network_location_and_access}%
   \newunit\newblock
   \usebibmacro{item_and_events_attributes}%
   \newunit\newblock
@@ -1592,6 +2025,7 @@
 \DeclareBibliographyAlias{incollection}{inbook}
 \DeclareBibliographyAlias{suppcollection}{inbook}
 \DeclareBibliographyAlias{inreference}{inbook}
+\DeclareBibliographyAlias{inproceedings}{inbook}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1616,9 +2050,11 @@
   \newunit\newblock
   \usebibmacro{production_information}%
   \newunit\newblock
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{series+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{other_elements_1}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1655,24 +2091,21 @@
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
   \newunit\newblock
-  \usebibmacro{component_parts}%
-  \newunit\newblock
-  \iffieldundef{series}
-    {\setunit{\printdelim{hostinfopaginationdelim}}}
-    {\newunit\newblock
-    \usebibmacro{serials_and_series}%
-    \setunit{\printdelim{seriesnumerationdelim}}}%
-  \usebibmacro{numeration_and_pagination}%
-  \newunit\newblock
-  \usebibmacro{other_elements_1}%
-  \newunit\newblock
-  \usebibmacro{subsidiary_creators}%
-  \newunit\newblock
   \usebibmacro{format_and_resource_type}%
   \newunit\newblock
   \usebibmacro{edition_and_version}%
   \newunit\newblock
+  \usebibmacro{subsidiary_creators}%
+  \newunit\newblock
+  \usebibmacro{host_title}%
+  \setunit*{\printdelim{hostinfonumerationdelim}}\newblock
+  \usebibmacro{series+numeration_and_pagination}%
+  \newunit\newblock
+  \usebibmacro{other_elements_1}%
+  \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1690,7 +2123,7 @@
 \DeclareBibliographyAlias{review}{article}
 \DeclareBibliographyAlias{commentary}{article}
 \DeclareBibliographyAlias{suppperiodical}{article}
-\DeclareBibliographyAlias{inproceedings}{article}
+%\DeclareBibliographyAlias{inproceedings}{article}
 \DeclareBibliographyAlias{conference}{article}
 
 
@@ -1722,6 +2155,8 @@
   \usebibmacro{production_information}%
   \newunit\newblock
   \usebibmacro{other_elements_1}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1768,11 +2203,11 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
+  \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \setunit*{\printdelim{seriesnumerationdelim}}%
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{host_info+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{item_and_events_attributes}%
   \newunit\newblock
@@ -1812,11 +2247,11 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \setunit*{\printdelim{seriesnumerationdelim}}%
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{host_info+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1860,13 +2295,13 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \setunit*{\printdelim{seriesnumerationdelim}}%
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{host_info+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{item_and_events_attributes}%
   \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1908,11 +2343,11 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \setunit*{\printdelim{seriesnumerationdelim}}%
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{host_info+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1944,17 +2379,25 @@
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   %
-  \usebibmacro{primary_creators}%
+  \usebibmacro{patent_applicants}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
   \newunit\newblock
+  \usebibmacro{format_and_resource_type}%
+  \newunit\newblock
   \usebibmacro{serials_and_series}%
   \newunit\newblock
-  \usebibmacro{subsidiary_creators}%
+  \usebibmacro{patent:subsidiary_creators}%
+  \newunit\newblock
+  \usebibmacro{date_of_application}%
+  \newunit\newblock
+  \usebibmacro{date_of_issuance}%
   \newunit\newblock
   \usebibmacro{other_elements_1}%
   \newunit\newblock
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{patent_number}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -1984,21 +2427,24 @@
 %
 \usebibmacro{primary_creators}%
 \setunit{\printdelim{nametitledelim}}\newblock
-\usebibmacro{other_elements_1}%
-\setunit{\printdelim{reportidtitledelim}}\newblock
+\usebibmacro{report:series_title_and_number}%
+\setunit*{\printdelim{numbertitledelim}}\newblock
 \usebibmacro{title}%
-\newunit\newblock
-\usebibmacro{in:}%
-\usebibmacro{component_parts}%
 \newunit\newblock
 \usebibmacro{format_and_resource_type}%
 \newunit\newblock
+\usebibmacro{other_elements_1}%
+\newunit\newblock
 \usebibmacro{edition_and_version}%
+\newunit\newblock
+\usebibmacro{subsidiary_creators}%
 \newunit\newblock
 \usebibmacro{production_information}%
 \newunit\newblock
-\usebibmacro{numeration_and_pagination}%
+\usebibmacro{distributor_or_online_host}%
 \newunit\newblock
+%\usebibmacro{series+numeration_and_pagination}%
+%\newunit\newblock
 \usebibmacro{identifiers}%
 \newunit\newblock
 \usebibmacro{item_and_events_attributes}%
@@ -2056,6 +2502,8 @@
 \newunit\newblock
 \usebibmacro{relationship}%
 \newunit\newblock
+\usebibmacro{distributor_or_online_host}%
+\newunit\newblock
 \usebibmacro{identifiers}%
 \newunit\newblock
 \usebibmacro{other_elements_2}%
@@ -2086,11 +2534,15 @@
   \newunit\newblock
   \usebibmacro{format_and_resource_type}%
   \newunit\newblock
-  \usebibmacro{other_elements_1}%
-  \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
+  \usebibmacro{series+numeration_and_pagination}
+  \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{other_elements_1}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -2148,6 +2600,8 @@
   \newunit\newblock
   \usebibmacro{item_and_events_attributes}%
   \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
+  \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
   \usebibmacro{relationship}%
@@ -2159,9 +2613,41 @@
 
 
 
-\DeclareBibliographyAlias{thesis}{unpublished}
-\DeclareBibliographyAlias{masterthesis}{unpublished}
-\DeclareBibliographyAlias{phdthesis}{unpublished}
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  %
+  \usebibmacro{primary_creators}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{format_and_resource_type}%
+  \newunit\newblock
+  \usebibmacro{edition_and_version}%
+  \newunit\newblock
+  \usebibmacro{other_elements_1}%
+  \newunit\newblock
+  \usebibmacro{subsidiary_creators}%
+  \newunit\newblock
+  \usebibmacro{thesis:production_information}%
+  \newunit\newblock
+  \usebibmacro{item_and_events_attributes}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
+  \newunit\newblock
+  \usebibmacro{identifiers}%
+  \newunit\newblock
+  \usebibmacro{relationship}%
+  \newunit\newblock
+  \usebibmacro{other_elements_2}%
+  %
+  \usebibmacro{finentry}%
+}
+
+
+
+\DeclareBibliographyAlias{masterthesis}{thesis}
+\DeclareBibliographyAlias{phdthesis}{thesis}
 \DeclareBibliographyAlias{letter}{unpublished}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2189,14 +2675,11 @@
   \newunit\newblock
   \usebibmacro{subsidiary_creators}%
   \newunit\newblock
-  \usebibmacro{in:}%
-  \usebibmacro{component_parts}%
-  \newunit\newblock
-  \usebibmacro{serials_and_series}%
-  \setunit*{\printdelim{seriesnumerationdelim}}%
-  \usebibmacro{numeration_and_pagination}%
+  \usebibmacro{host_info+numeration_and_pagination}%
   \newunit\newblock
   \usebibmacro{production_information}%
+  \newunit\newblock
+  \usebibmacro{distributor_or_online_host}%
   \newunit\newblock
   \usebibmacro{identifiers}%
   \newunit\newblock
@@ -2205,8 +2688,8 @@
   \usebibmacro{relationship}%
   \newunit\newblock
   \usebibmacro{other_elements_2}%
-  %\newunit\newblock
-  %\usebibmacro{mytest}%
+  \newunit\newblock
+  \usebibmacro{mytest}%
   %
   \usebibmacro{finentry}%
 }

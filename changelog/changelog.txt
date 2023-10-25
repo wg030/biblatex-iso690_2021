@@ -1,0 +1,82 @@
+CHANGELOG of the ISO 690:2021 Biblatex Bibliography Style
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% v0.1 (2023/07/16)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+(initial implementation)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% v0.2 (2023/10/25)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+- more bibliography strings habe been added, epsecially the plural forms
+- German translation has been added: german-iso69_2021.lbx
+- empty template for new languages has been added: newlang-iso690_2021.lbx
+
+- new style options habe been added: "dateofapplattr", "dateofissattr"
+- default options have been slightly adjusted to fit better to the style
+
+- the command "\ifentrytypeisarticlelike" has been introduced
+- the command "\ifentrytypeisinbooklike" has been introduced
+
+- the data fields 'mainseries' and 'mainvolume' have been removed
+- support for the data field "volumes" has been added
+- the following field formats have been modified or extended:
+  "version", "volume", "part",
+
+- the following eprint types have been added:
+  "googlepatents", "coursera"
+
+- the following bibmacros have been improved:
+  "editor", "host_title", "production_information"
+- the following bibmacros have been added:
+  "distributor_or_online_host", "multiple_print_volumes", "availability:doi"
+- the bibmacro "numeration_and_pagination" has been split into the new bibmacros
+  "numeration_volume", "numeration_number", "numeration" and "page_number_range"
+- the bibmacros "host_info_resource" and "component_parts" have been replaced by
+  the new bibmacro "host_info+numeration_and_pagination" and in accordance with
+  that the bibmacros "title", "in:", "host_creators", and "host_info_resource"
+  have been modified or extended
+- the bibmacro "host_series_and_numeration" has been removed in favour of the
+  new bibmacros "series_title", "series_title_and_number" and
+  "series+numeration_and_pagination"
+- the bibmacro "network_location_and_access" has been added and in accordance
+  with that the bibmacros "persistent_identifiers" and "identifiers" have been
+  modified
+- the bibmacro "related_data_long" has been changed according to the new
+  bibmacro "host_info+numeration_and_pagination"
+- the bibmacro "related_data_complete" has been changed according to the new
+  bibmacros "host_info+numeration_and_pagination" and
+  "distributor_or_online_host"
+
+- the @patent entry type has been improved signficantlly. As part of that
+  improvement the bibmacros "patent:holder", "patent_applicants",
+  "patent:subsidiary_creators", "date_of_application", "date_of_issuance" and
+  "patent_number" have been added
+- the @report entry type has been improved signficantlly. As part of that
+  improvement the bibmacros "report_series_title", "report_number" and
+  "report:series_title_and_number" have been added
+- the @thesis entry type has been improved signficantlly. As part of that
+  improvement the bibmacro "thesis:production_information" has been added
+- the @theis entry type has now its own bibliography dirver
+- the order of elements in the @article entry type has been corrected
+- the existing bibliography drivers have been modified according to the new
+  changes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+

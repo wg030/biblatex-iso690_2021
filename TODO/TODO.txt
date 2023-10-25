@@ -1,3 +1,7 @@
+TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7,29 +11,34 @@
 
 % add support for the following fields:
 % - pagetotal [see 7.9.2 EXAMPLE 6, p. 54]
-% - volumes
 % - pagination, bookpagination
+% - origtitle, origdate, origlocation, origpublisher, origlanguage
+
+
+% improve the @periodical entry type
+% [see 7.10.7 EXAMPLE 2, p. 57], [see 7.10.7 EXAMPLE 3, p. 57],
+% [see 7.10.7 EXAMPLE 4, p. 57]
+
+
+% introduce "related_data_article" bibmacro
+% [see 7.14.4 EXAMPLE, p. 72]
 
 
 % add "emphtitle" package option
-% [see 7.1.2.4.3 EXAMPLE 27, p. 22], [see 7.2.4.1 EXAMPLE 24, p. 29],
-% [see 7.2.4.1 EXAMPLE 25, p. 29], [see 7.2.4.1 EXAMPLE 26, p. 29],
-% [see 7.4.2.1 EXAMPLE 2, p. 38], [see 7.4.2.1 EXAMPLE 6, p. 39],
+% [see 7.2.4.1 EXAMPLE 24, p. 29],[see 7.2.4.1 EXAMPLE 26, p. 29],
+% [see 7.2.6.6 EXAMPLE 2, p. 33],[see 7.4.2.1 EXAMPLE 2, p. 38], 
 % [see 7.4.2.1 EXAMPLE 8, p. 39], [see 7.4.2.2 EXAMPLE, p. 39],
-% [see 7.4.2.3 EXAMPLE 2, p. 40], [see 7.4.2.3 EXAMPLE 5, p. 40],
-% [see 7.4.2.3 EXAMPLE 7, p. 40], [see 7.5.3 EXAMPLE 12, p. 43],
-% [see 7.7.5 EXAMPLE 5, p. 49], [see 7.8.2.2 EXAMPLE 3, p. 50],
+% [see 7.4.2.3 EXAMPLE 5, p. 40], [see 7.4.2.3 EXAMPLE 7, p. 40],
+% [see 7.5.3 EXAMPLE 12, p. 43],[see 7.8.2.2 EXAMPLE 3, p. 50],
 % [see 7.11.1 EXAMPLE 2, p. 57], [see 7.11.3 EXAMPLE 3, p. 59],
 % [see 7.11.3 EXAMPLE 4, p. 60], [see 7.12.1.3 EXAMPLE 3, p. 63],
 % [see 7.12.2.10 EXAMPLE, p. 66], [see 7.12.4 EXAMPLE 5, p. 68],
 % [see 7.12.4 EXAMPLE 7, p. 68], [see 7.13.2 EXAMPLE 6, p. 69],
-% [see 7.14.3 EXAMPLE 3, p. 72], [see 7.14.6 EXAMPLE 1, p. 73],
-% [see 7.14.8 EXAMPLE 2, p. 74], [see 7.14.10 EXAMPLE 2, p. 76],
-% [see 7.14.10 EXAMPLE 3, p. 76]
+% [see 7.14.6 EXAMPLE 1, p. 73], [see 7.14.8 EXAMPLE 2, p. 74],
+% [see 7.14.10 EXAMPLE 2, p. 76], [see 7.14.10 EXAMPLE 3, p. 76]
 
 
 % add "empbooktitle" package option
-% [see 7.7.5 EXAMPLE 5, p. 49]
 
 
 % add "emphmaintitle" package option
@@ -39,9 +48,9 @@
 % add "emphjournaltitle" package option
 % [see 7.2.4.1 EXAMPLE 24, p. 29], [see 7.2.4.1 EXAMPLE 26, p. 29],
 % [see 7.4.2.1 EXAMPLE 2, p. 38], [see 7.4.2.2 EXAMPLE, p. 39],
-% [see 7.4.2.3 EXAMPLE 2, p. 40], [see 7.4.2.3 EXAMPLE 5, p. 40],
-% [see 7.5.3 EXAMPLE 12, p. 43], [see 7.11.1 EXAMPLE 2, p. 57],
-% [see 7.11.3 EXAMPLE 3, p. 59], [see 7.12.4 EXAMPLE 5, p. 68]
+% [see 7.4.2.3 EXAMPLE 5, p. 40], [see 7.5.3 EXAMPLE 12, p. 43],
+% [see 7.11.1 EXAMPLE 2, p. 57], [see 7.11.3 EXAMPLE 3, p. 59],
+% [see 7.12.4 EXAMPLE 5, p. 68]
 
 
 % add "emphtitleaddon" package option
@@ -50,21 +59,11 @@
 % [see 7.15.5 EXAMPLE 1, p. 78]
 
 
-% put or don't put "In:" when necessary 
-% [see 7.1.2.4.3 EXAMPLE 26, p. 22] + [see 7.4.2.1 EXAMPLE 5, p. 39],
-% [see 7.4.2.1 EXAMPLE 7, p. 39], [see 7.4.2.3 EXAMPLE 2, p. 40],
-% [see 7.4.2.3 EXAMPLE 3, p. 40], [see 7.14.11 EXAMPLE 1, p. 76]
-
-
-% make correct order of mediumdesignator, howpublished and type
-% [see 7.2.6.6 EXAMPLE 2, p. 33]
-
-
 % print a date range like "1082/1135" as "1082–1135"
 % [see 7.2.4.1 EXAMPLE 23, p. 29], [see 7.4.2.3 EXAMPLE 8, p. 40],
 % [see 7.5.1 EXAMPLE 3, p. 40], [see 7.5.1 EXAMPLE 6, p. 41],
-% [see 7.14.8 EXAMPLE 1, p. 74], [see 7.14.10 EXAMPLE 2, p. 76],
-% [see 7.15.7 EXAMPLE 8, p. 79]
+% [see 7.14.8 EXAMPLE 1, p. 74], [see 7.14.8 EXAMPLE 4, p. 74],
+% [see 7.14.10 EXAMPLE 2, p. 76], [see 7.15.7 EXAMPLE 8, p. 79]
 
 
 % print a year like "0245" as "245" and "-0489" as "490 BC"
@@ -72,7 +71,24 @@
 
 
 % make use of the oridgate field
-% [see 7.7.5 EXAMPLE 4, p. 49], [see 7.7.5 EXAMPLE 5, p. 49]
+% [see 7.7.5 EXAMPLE 4, p. 49], [see 7.7.5 EXAMPLE 5, p. 49],
+% [see 7.8.2.2 EXAMPLE 7, p. 50]
+
+
+% print publisher in @patent entry type
+% [see 8.10.4 EXAMPLE 2, p. 120]
+
+
+% print maintitle in @report entry type
+% [see 8.11.4.1 EXAMPLE 5, p. 122]
+
+
+% add support für surrogate dates
+% [see 7.7.5 EXAMPLE 4, p. 49]
+
+
+% implement the shownopublisher option
+[see 7.8.2.2 EXAMPLE 3, p. 50]
 
 
 % add "eprinti", "eprintii", ... fields
@@ -83,28 +99,16 @@
 % [see 7.15.11 EXAMPLE, p. 81]
 
 
-% check how to correctly print wikipedia articles
-% [see 7.4.2.3 EXAMPLE 1, p. 40], [see 7.12.2.5 EXAMPLE 2, p. 65],
-% [see 7.12.2.6 EXAMPLE, p. 65]
+% add eprintdate and doidate
+% [see 7.12.2.4 EXAMPLE 2, p. 65]
 
 
-% make sure maintitle is displayed in @artwork, @collection
-% [see 7.12.1.2 EXAMPLE 17, p. 61], [see 7.13.2 EXAMPLE 6, p. 69],
-% [see 7.14.8 EXAMPLE 6, p. 75], [see 7.14.9 EXAMPLE 2, p. 75]
+% fix bug, where note is not display in context with venue
+% [see 7.14.8 EXAMPLE 6, p. 75]
 
 
-% fix exprint bug
-% [see 7.12.1.2 EXAMPLE 19, p. 62]
-
-
-% allow nested relations
-% [see 7.14.2 EXAMPLE 6, p. 71]
-
-
-% create ifinbooklike and ifarticlelike commands and replace
-% \ifentrytype{inbook} and \ifentrytype{article},
-% so that they also work for @review, ...
-% [see 7.14.7 EXAMPLE 6, p. 74]
+% improve output when two relations are displayed
+% [see 7.14.9 EXAMPLE 1, p. 75]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,19 +132,74 @@
 % check all editor fields and change them to editora
 
 
+% examples that have a different order of elements compared to how they
+% are show in the iso 690 document:
+% [see 7.1.2.4.3 EXAMPLE 26, p. 22], [see 7.1.3.3 EXAMPLE 3, p. 25],
+% [see 7.2.3 EXAMPLE 1, p. 26], [see 7.2.4.1 EXAMPLE 25, p. 29],
+% [see 7.2.6.6 EXAMPLE 2, p. 33], [see 7.2.6.7 EXAMPLE 2, p. 34],
+% [see 7.4.2.1 EXAMPLE 3, p. 39], [see 7.4.2.1 EXAMPLE 5, p. 39],
+% [see 7.4.2.3 EXAMPLE 4, p. 40], [see 7.6.2 EXAMPLE 2, p. 45],
+% [see 7.6.2 EXAMPLE 3, p. 45], [see 7.7.5 EXAMPLE 5, p. 49],
+% [see 7.8.2.4 EXAMPLE 8, p. 51], [see 7.12.1.2 EXAMPLE 17, p. 61],
+% [see 7.12.1.2 EXAMPLE 18, p. 61], [see 7.12.1.2 EXAMPLE 19, p. 62],
+% [see 7.12.1.2 EXAMPLE 20, p. 62], [see 7.12.1.2 EXAMPLE 21, p. 62],
+% [see 7.12.1.2 EXAMPLE 23, p. 62], [see 7.12.1.2 EXAMPLE 24, p. 62],
+% [see 7.12.1.2 EXAMPLE 25, p. 62], [see 7.12.1.2 EXAMPLE 27, p. 62],
+% [see 7.12.1.2 EXAMPLE 28, p. 62], [see 7.12.1.3 EXAMPLE 1, p. 62],
+% [see 7.12.1.3 EXAMPLE 2, p. 62], [see 7.12.1.3 EXAMPLE 3, p. 63],
+% [see 7.12.1.3 EXAMPLE 4, p. 63], [see 7.12.1.3 EXAMPLE 5, p. 63],
+% [see 7.12.2.5 EXAMPLE 1, p. 65], [see 7.12.2.5 EXAMPLE 2, p. 65],
+% [see 7.12.2.10 EXAMPLE, p. 66], [see 7.13.2 EXAMPLE 5, p. 69],
+% [see 7.13.3 EXAMPLE 8, p. 70], [see 7.13.3 EXAMPLE 9, p. 70],
+% [see 7.14.1 EXAMPLE 2, p. 70], [see 7.14.2 EXAMPLE 8, p. 71],
+% [see 7.14.2 EXAMPLE 9, p. 71], [see 7.14.2 EXAMPLE 10, p. 71],
+% [see 7.14.3 EXAMPLE 3, p. 72], [see 7.14.6 EXAMPLE 3, p. 73],
+% [see 7.14.8 EXAMPLE 2, p. 74], [see 7.14.8 EXAMPLE 4, p. 74],
+% [see 7.14.8 EXAMPLE 5, p. 75], [see 7.14.10 EXAMPLE 3, p. 76],
+% [see 7.14.11 EXAMPLE 1, p. 76], [see 7.15.5 EXAMPLE 1, p. 78],
+% [see 8.10.3.4 EXAMPLE 1, p. 119], [see 8.10.3.4 EXAMPLE 2, p. 120],
+% [see 8.10.4 EXAMPLE 1, p. 120], [see 8.10.4 EXAMPLE 2, p. 120],
+% [see 8.11.4.1 EXAMPLE 3, p. 122]
+
+
+% check for best order of mediumdesignator, howpublished and type
+% [see 7.2.6.6 EXAMPLE 2, p. 33], [see 8.11.4.1 EXAMPLE 3, p. 122]
+
+
+% maybe treat music as @inbook
+% [see 7.4.2.3 EXAMPLE 7, p. 40]
+
+
+% maybe make the "in:" label for @inbook entries changeable to
+% "commentray on" or something like that
+% [see 7.2.6.7 EXAMPLE 2, p. 34]
+
+
+% maybe implement a possibility to avoid "in:" for @inbook entries
+% or maintitles
+[see 7.1.2.4.3 EXAMPLE 26, p. 22], [see 7.1.2.4.3 EXAMPLE 27, p. 22]
+
+
+% maybe use the orig* fields to create small realtions
+% [see 7.14.2 EXAMPLE 6, p. 71]
+
+
 % make all relations with "related_data_complete" unless there is a
 % good reason for not doing so
-% [see 7.14.8 EXAMPLE 3, p. 74], [see 7.14.8 EXAMPLE 4, p. 74],
-% [see 7.14.9 EXAMPLE 1, p. 75], [see 7.14.9 EXAMPLE 2, p. 75]
+% [see 7.14.2 EXAMPLE 6, p. 71], [see 7.14.8 EXAMPLE 3, p. 74],
+% [see 7.14.8 EXAMPLE 4, p. 74], [see 7.14.9 EXAMPLE 1, p. 75],
+% [see 7.14.9 EXAMPLE 2, p. 75]
 
 
 % check if there has to be an enddot before "}", when using a relation
+% or when using maintitles or @inbook
 % (especially check the two differen case when the relation is the last item
 % of an entry and when it is not)
+% [see 7.1.2.4.3 EXAMPLE 26, p. 22], [see 7.1.2.4.3 EXAMPLE 27, p. 22]
 
 
-% check how to print @inbook best
-% [see 7.1.2.4.3 EXAMPLE 27, p. 22] + [see 7.4.2.1 EXAMPLE 4, p. 39]
+% check if venue is postioned in front of or behind the publication infos
+[see 7.1.3.3 EXAMPLE 3, p. 25]
 
 
 % add isrc field, jan field, catalog no. field, istc field
@@ -153,7 +212,7 @@
 
 % add field for owner and vendor:
 % [see 7.12.1.3 EXAMPLE 1, p. 62], [see 7.12.1.3 EXAMPLE 2, p. 62],
-% [see 7.12.1.3 EXAMPLE 3, p. 62], [see 7.12.1.3 EXAMPLE 4, p. 62],
+% [see 7.12.1.3 EXAMPLE 3, p. 63], [see 7.12.1.3 EXAMPLE 4, p. 63],
 % [see 7.12.1.3 EXAMPLE 5, p. 63]
 
 
@@ -161,17 +220,38 @@
 % [see 7.13.3 EXAMPLE 6, p. 69], [see 7.14.3 EXAMPLE 2, p. 72]
 
 
+% introduce "abriged by" as alternative to "abridgement"
+% [see 7.14.6 EXAMPLE 3, p. 73]
+
+
 % create "cited" label or "accessed" label alternative for the
 % "viewed" label for urldate
-% [see 7.15.8 EXAMPLE 3, p. 80], [see 8.5.5 Example 2, p. 93]
+% [see 8.5.5 Example 2, p. 93]
 
 
 % maybe add curly brackets for the venue field after "At:"
-% [ see 7.1.3.3 EXAMPLE 1, p. 24]
+% [see 7.1.3.3 EXAMPLE 1, p. 24]
 
 
-% use a comma as delimiter for a component part and the numeration/pagination
-% [see 7.1.2.4.3 EXAMPLE 26, p. 22]
+% check if eventdate should be of type "comp" or "iso" as deafult
+% [see 7.1.3.3 EXAMPLE 4, p. 25]
+
+
+% check if circa date should be display with brackets or not
+% [see 7.12.1.2 EXAMPLE 17, p. 61], [see 7.12.1.2 EXAMPLE 18, p. 61]
+
+
+% allow entrys without primary creator, but with editor as subsidary creator
+% [see 7.5.1 EXAMPLE 5, p. 40]
+
+
+% comma in front of "et al." ?!
+% [see 7.6.1 EXAMPLE 5, p. 44]
+
+
+% check the order of eprint, url (and doi)
+% [see 7.8.2.4 EXAMPLE 8, p. 51], [see 7.12.2.4 EXAMPLE 2, p. 65],
+% [see 7.12.2.10 EXAMPLE, p. 66], [see 7.12.4 EXAMPLE 7, p. 68]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -4,9 +4,8 @@
 % Playground for Some Own Testing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-@misc{willi5,
-  keywords         = {testing},
+@inbook{willi5,
+  %keywords         = {testing},
   
   author           = {Willi Gerbig and Hannah Helper and Carl Copywriter and Mila More},
   title            = {What about a question?},
@@ -15,6 +14,9 @@
   authortype       = {idea generators},
   subtitle         = {Questions can be answers},
   titleaddon       = {Wer nicht fragt bleibt dumm},
+  %bookauthor       = {Bernd Bookie},
+  booktitle        = {The Book of Questions},
+  booksubtitle     = {Including All Answers},
   editor           = {Jim Panse and Paul Publizierer},
   editortype       = {editor},
   edition          = {3rd extended edition},
@@ -25,7 +27,7 @@
   doi              = {10.1002/wcs.1531},
   eprinttype       = {Secret FAQ Repo},
   eprint           = {www.secretfaqrepo.com},
-  eprint+an:avail  = {="seealso"},
+  eprint+an:avail  = {="urlalso"},
   %eprinttype       = {hdl},
   %eprint           = {1885/36342},
   %eprintclass      = {cs.CL},
@@ -43,7 +45,7 @@
   eprint           = {https://web.archive.org/web/20210306140217/https://www.quizbreaker.com/trivia-questions},
   eprint+an:access = {="restricted"},
   url              = {https://www.answers.com/},
-  url+an:avail     = {="seealso"},
+  url+an:avail     = {="urlalso"},
   %eventtitle       = {Get answers to your questions},
   %venue            = {Café Louvre, Prague},
   %eventdate        = {2022-12-31},
@@ -77,7 +79,8 @@
   date             = {2021-06},
   
   nameaddon        = {\mkbibnamefamily{ISO}},
-  note             = {ISO 690:2021(E)},
+  series           = {ISO},
+  number           = {690:2021(E)},
   edition          = {Fourth edition},
   url              = {https://www.iso.org/standard/72642.html},
   url+an:access    = {="paywall"},
@@ -97,7 +100,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% [see 7.1.2.4.3 EXAMPLE 1, p. 19]
+% TO DO MAYBE: [see 7.1.2.4.3 EXAMPLE 1, p. 19]
 @book{scarpa1,
   keywords         = {general},
   
@@ -106,7 +109,7 @@
   date             = {2018},
 
   subtitle         = {The Delta Dimension},
-  series           = {The Disney Masters Collection},
+  maintitle        = {The Disney Masters Collection},
   volume           = {1},
   location         = {College Park},
   publisher        = {Fantagraphics},
@@ -146,7 +149,7 @@
 }
 
 
-% [see 7.1.2.4.3 EXAMPLE 24, p. 21]
+% TO DO MAYBE: [see 7.1.2.4.3 EXAMPLE 24, p. 21]
 @book{scarpa2,
   keywords         = {general},
   
@@ -155,7 +158,7 @@
   date             = {2018},
 
   subtitle         = {The Delta Dimension},
-  series           = {The Disney Masters Collection},
+  maintitle        = {The Disney Masters Collection},
   volume           = {1},
   location         = {College Park \mkbibbrackets{US-MD}},
   publisher        = {Fantagraphics},
@@ -164,7 +167,7 @@
 }
 
 
-% [TO DO: [see 7.1.2.4.3 EXAMPLE 25, p. 22]
+% TO DO: [see 7.1.2.4.3 EXAMPLE 25, p. 22]
 @book{leung-yung,
   keywords         = {general},
   
@@ -180,8 +183,8 @@
 }
 
 
-% TO DO: [see 7.1.2.4.3 EXAMPLE 26, p. 22]
-@incollection{wilhelm1,
+% TO DO MAYBE: [see 7.1.2.4.3 EXAMPLE 26, p. 22]
+@book{wilhelm1,
   keywords         = {general},
   relatedoptions   = {shownocreator=false, skipbib=true},
   
@@ -190,8 +193,8 @@
   date             = {1967},
 
   authortype       = {commentator},
-  mainseries       = {Bollingen Series},
-  mainvolume       = {170},
+  maintitle        = {Bollingen Series},
+  volume           = {170},
   number           = {Book XIX},
   note             = {Translated from German to English},
   translator       = {Cary F. Baynes},
@@ -215,7 +218,7 @@
 }
 
 
-% TO DO: [see 7.1.2.4.3 EXAMPLE 27, p. 22]
+% TO DO MAYBE: [see 7.1.2.4.3 EXAMPLE 27, p. 22]
 @inbook{waterson1,
   keywords         = {general},
   options          = {shownodate=false},
@@ -223,19 +226,13 @@
   author           = {Bill Waterson},
   titleaddon       = {You've taught me nothing except how to cynically
                       manipulate the system},
-  
-  related          = {rel:waterson1},
-  relatedtype      = {in},
-  langid           = {english}
-}
-@book{rel:waterson1,
-  author           = {Bill Waterson},
-  title            = {There's Treasure Everywhere},
   date             = {1996},
   
-  subtitle         = {A Calvin and Hobbes Collection},
+  bookauthor       = {Bill Waterson},
+  booktitle        = {There's Treasure Everywhere},
+  booksubtitle     = {A Calvin and Hobbes Collection},
   edition          = {1\textsuperscript{st} ed.},
-  series           = {Calvin and Hobbes},
+  maintitle        = {Calvin and Hobbes},
   number           = {Book 15},
   location         = {Kansas City},
   publisher        = {{Andrews McMeel Publishing}},
@@ -316,6 +313,7 @@
 % TO DO: [see 7.1.3.3 EXAMPLE 4, p. 25]
 @artwork{picasso3,
   keywords         = {general},
+  %options          = {eventdate=iso},
   
   author           = {Pablo Picasso},
   title            = {Tripode},
@@ -357,7 +355,7 @@
 
 
 % TO DO MAYBE: [see 7.2.3 EXAMPLE 1, p. 26]
-@incollection{aymard1,
+@book{aymard1,
   keywords         = {creator},
   
   author           = {M. Aymard},
@@ -529,19 +527,13 @@
   
   author           = {Akihito},
   title            = {Gobiidae},
-  
-  nameaddon        = {Prince of Japan},
-  related          = {rel:masuda},
-  relatedtype      = {in},
-  langid           = {english}
-}
-@book{rel:masuda,
-  editor           = {H. Masuda and K. Amaoka and C. Araga and T. Uyeno and
-                      T. Yoshino},
-  title            = {The Fishes of the Japanese Archipelago},
   date             = {1988},
   
+  nameaddon        = {Prince of Japan},
+  editor           = {H. Masuda and K. Amaoka and C. Araga and T. Uyeno and
+                      T. Yoshino},
   editortype       = {editor},
+  booktitle        = {The Fishes of the Japanese Archipelago},
   pages            = {230--276},
   location         = {Hiratsuka},
   publisher        = {{Tokai University Press}},
@@ -658,7 +650,9 @@
   mediumdesignator = {\mkbibbrackets{LP}},
   howpublished     = {SIL 2211, side B, track 5},
   publisher        = {Savoy},
-  organization     = {{Arista Records Inc. (distributor)}},
+  organization     = {{Arista Records Inc.\isdot\addspace
+                      \mkbibparens{\bibstring{distributor}}}},
+  %listd            = {{Arista Records Inc.\isdot}},
   addendum         = {Originally released on Savoy, MG 9003, 1947},
   
   langid           = {english}
@@ -847,12 +841,13 @@
 
   subtitle         = {60 years since life's deep molecular secret was
                       discovered},
+  mediumdesignator = {online},
   issn             = {1756-3224},
   langid           = {english}
 }
 
 
-% [see 7.4.2.1 EXAMPLE 3, p. 39]
+% TO DO MAYBE: [see 7.4.2.1 EXAMPLE 3, p. 39]
 @inbook{owen,
   keywords         = {component_parts},
   
@@ -862,14 +857,14 @@
   booktitle        = {Poems by Wilfried Owen},
 
   bookauthor       = {W. Owen},
-  pages            = {1--2},
   location         = {London},
   publisher        = {Chatto \& Windus},
+  pages            = {1--2},
   langid           = {english}
 }
 
 
-% TO DO MAYBE: [see 7.4.2.1 EXAMPLE 4, p. 39]
+% [see 7.4.2.1 EXAMPLE 4, p. 39]
 @inbook{waterson2,
   keywords         = {component_parts},
   
@@ -881,16 +876,16 @@
   
   booksubtitle     = {A Calvin and Hobbes Collection},
   edition          = {1\textsuperscript{st} ed.},
-  pages            = {90},
   location         = {Kansas City},
   publisher        = {{Andrews McMeel Publishing}},
   isbn             = {978-0-8362-1312-6},
+  pages            = {90},
   langid           = {english}
 }
 
 
-% TO DO: [see 7.4.2.1 EXAMPLE 5, p. 39]
-@incollection{wilhelm2,
+% TO DO MAYBE: [see 7.4.2.1 EXAMPLE 5, p. 39]
+@book{wilhelm2,
   keywords         = {component_parts},
   
   author           = {Richard Wilhelm},
@@ -898,8 +893,8 @@
   date             = {1967},
 
   authortype       = {commentator, translator},
-  mainseries       = {Bollingen Series},
-  mainvolume       = {170},
+  maintitle        = {Bollingen Series},
+  volume           = {170},
   number           = {Book XIX},
   note             = {Translated from German to English},
   translator       = {Cary F. Baynes},
@@ -910,37 +905,31 @@
 }
 
 
-% TO DO: [see 7.4.2.1 EXAMPLE 6, p. 39]
+
+% [see 7.4.2.1 EXAMPLE 6, p. 39]
 @inbook{waterson3,
   keywords         = {component_parts},
-  options          = {shownodate=false},
   
   author           = {Bill Waterson},
   titleaddon       = {You've taught me nothing except how to cynically
                       manipulate the system},
-  
-  pages            = {90},
-  related          = {rel:waterson3},
-  relatedtype      = {in},
-  langid           = {english}
-}
-@book{rel:waterson3,
-  author           = {Bill Waterson},
-  title            = {There's Treasure Everywhere},
   date             = {1996},
+  booktitle        = {There's Treasure Everywhere},
   
-  subtitle         = {A Calvin and Hobbes Collection},
+  bookauthor       = {Bill Waterson},
+  booksubtitle     = {A Calvin and Hobbes Collection},
   edition          = {1\textsuperscript{st} ed.},
-  series           = {Calvin and Hobbes},
+  maintitle        = {Calvin and Hobbes},
   number           = {Book 15},
   location         = {Kansas City},
   publisher        = {{Andrews McMeel Publishing}},
   isbn             = {978-0-8362-1312-6},
+  pages            = {90},
   langid           = {english}
 }
 
 
-% TO DO: [see 7.4.2.1 EXAMPLE 7, p. 39]
+% [see 7.4.2.1 EXAMPLE 7, p. 39]
 @book{scarpa3,
   keywords         = {component_parts},
   
@@ -949,7 +938,7 @@
   date             = {2018},
 
   subtitle         = {The Delta Dimension},
-  series           = {The Disney Masters Collection},
+  maintitle        = {The Disney Masters Collection},
   volume           = {1},
   location         = {College Park \mkbibbrackets{US-MD}},
   publisher        = {Fantagraphics},
@@ -1013,33 +1002,33 @@
 }
 
 
-% TO DO: [see 7.4.2.3 EXAMPLE 1, p. 40]
-@inreference{wiki1,
+% [see 7.4.2.3 EXAMPLE 1, p. 40]
+@online{wiki1,
   keywords         = {component_parts},
   options          = {shownocreator=false},
   
   title            = {Belle de Jour},
   date             = {2000-07-08},
+  url              = {https://en.wikipedia.org/w/index.php?title=Belle_de_Jour_(film)&oldid=966722855},
   
   mediumdesignator = {online},
-  booktitle        = {Wikipedia (\bibstring{distributor})},
-  publisher        = {{Wikimedia foundation}},
-  url              = {https://en.wikipedia.org/w/index.php?title=Belle_de_Jour_(film)&oldid=966722855},
+  listd            = {Wikipedia},
+  organization     = {{Wikimedia Foundation}},
   urldate          = {2020-07-13},
   langid           = {english}
 }
 
 
-% TO DO: [see 7.4.2.3 EXAMPLE 2, p. 40]
-@article{clark,
+% [see 7.4.2.3 EXAMPLE 2, p. 40]
+@online{clark,
   keywords         = {component_parts},
   
   author           = {Carol Clark},
   title            = {On the threshold of a brave new world},
-  journaltitle     = {Blueprint of the body},
   date             = {2000},
 
   mediumdesignator = {online},
+  maintitle        = {Blueprint of the body},
   publisher        = {CNN.com},
   note             = {In-depth specials},
   eprinttype       = {internetarchive},
@@ -1050,8 +1039,8 @@
 }
 
 
-% TO DO: [see 7.4.2.3 EXAMPLE 3, p. 40]
-@misc{duerer1,
+% [see 7.4.2.3 EXAMPLE 3, p. 40]
+@online{duerer1,
   keywords         = {component_parts},
   
   author           = {Albrecht Dürer},
@@ -1060,7 +1049,7 @@
 
   type             = {Image},
   mediumdesignator = {online},
-  bookauthor       = {{Art in Words}},
+  maintitle        = {ART IN WORDS},
   location         = {Vienna},
   publisher        = {ARTinWORDS},
   url              = {https://artinwords.de/albrecht-duerer-feldhase-1502/},
@@ -1070,7 +1059,7 @@
 
 
 % TO DO MAYBE: [see 7.4.2.3 EXAMPLE 4, p. 40]
-@incollection{aymard2,
+@book{aymard2,
   keywords         = {component_parts},
   
   author           = {M. Aymard},
@@ -1334,7 +1323,7 @@
 }
 
 
-% [see 7.6.1 EXAMPLE 5, p. 44]
+% TO DO MAYBE: [see 7.6.1 EXAMPLE 5, p. 44]
 @unpublished{bloss,
   keywords         = {edition_and_version},
   options          = {maxbibnames=3, minbibnames=3},
@@ -1376,7 +1365,7 @@
   date             = {2016-06-25},
 
   type             = {Program},
-  version          = {Version 10.11},
+  version          = {10.11},
   langid           = {english}
 }
 
@@ -1390,7 +1379,7 @@
   date             = {2020-07-28},
 
   type             = {Program},
-  version          = {Version 79.0},
+  version          = {79.0},
   langid           = {english}
 }
 
@@ -1423,17 +1412,16 @@
 
 
 % TO DO: [see 7.7.5 EXAMPLE 5, p. 49]
-@inbook{shakespeare3,
+@book{shakespeare3,
   keywords         = {date},
   
   author           = {William Shakespeare},
   title            = {Hamlet},
   date             = {2006},
-  booktitle        = {The Arden Shakespeare},
   
   editor           = {Ann Thompson and Neil Taylor},
   editortype       = {editor},
-  edition          = {Third Series},
+  maintitle        = {The Arden Shakespeare -- Third Series},
   location         = {New York},
   publisher        = {Bloomsbury},
   origdate         = {1603},
@@ -1461,7 +1449,7 @@
   date             = {2016},
   
   location         = {London},
-  publisher        = {{Finicial Times Ltd}},
+  publisher        = {{FINICIAL TIMES LTD}},
   langid           = {english}
 }
 
@@ -1477,7 +1465,7 @@
   subtitle         = {cum priuilegio},
   howpublished     = {\mkbibbrackets{ca. 1: 3 000 000.}},
   maintitle        = {Theatrum Orbis Terrarum},
-  mainvolume       = {24},
+  volume           = {24},
   location         = {Antwerp},
   note             = {360 mm × 480 mm},
   venue            = {Ryhiner Map Collection, University Library of Bern, Bern},
@@ -1560,7 +1548,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% TO DO MAYBE: [see 7.10.7 EXAMPLE 2, p. 57]
+% TO DO: [see 7.10.7 EXAMPLE 2, p. 57]
 @periodical{JotRAI,
   keywords         = {serials_and_series},
   
@@ -1575,7 +1563,7 @@
 }
 
 
-% TO DO MAYBE: [see 7.10.7 EXAMPLE 3, p. 57]
+% TO DO: [see 7.10.7 EXAMPLE 3, p. 57]
 @periodical{TotRHS,
   keywords         = {serials_and_series},
   
@@ -1588,7 +1576,7 @@
 }
 
 
-% TO DO MAYBE: [see 7.10.7 EXAMPLE 4, p. 57]
+% TO DO: [see 7.10.7 EXAMPLE 4, p. 57]
 @periodical{AJoS,
   keywords         = {serials_and_series},
   
@@ -1815,7 +1803,7 @@
   
   author           = {R. Robinson},
   title            = {Quiet and Poised},
-  journaltitle     = {PLoS Biol.},
+  journaltitle     = {PLoS Biol.\isdot},
   date             = {2010},
 
   subtitle         = {\q{Silent} Genes Accumulate Transcription Machinery},
@@ -1906,8 +1894,8 @@
   editora          = {William Marx},
   editoratype      = {piano},
   venue            = {McCallum Theatre, Palm Desert, CA},
-  eprint           = {https://www.youtube.com/watch?v=JTEFKFiXSx4},
   eprint+an:avail  = {="digitalrecording"},
+  eprint           = {https://www.youtube.com/watch?v=JTEFKFiXSx4},
   langid           = {english}
 }
 
@@ -2081,8 +2069,9 @@
   location         = {Vallauris},
   publisher        = {Madoura},
   note             = {Owner: The Attenborough Collection. Vendor: Sotheby's},
-  related          = {rel:sothebys},
   relatedtype      = {listedat},
+  related          = {rel:sothebys},
+  addendum         = {item 10},
   langid           = {english}
 }
 @reference{rel:sothebys,
@@ -2092,7 +2081,6 @@
   
   subtitle         = {Lord \& Lady Attenborough The Celebrated Private
                       Collection Of Picasso Ceramics},
-  addendum         = {item 10},
   langid           = {english}
 }
 
@@ -2173,33 +2161,33 @@
 
 
 % TO DO: [see 7.12.2.5 EXAMPLE 2, p. 65]
-@inreference{wiki2,
+@online{wiki2,
   keywords         = {availability_and_location},
   options          = {shownocreator=false},
   
   title            = {Transliteration},
   date             = {2020-06-23},
+  url              = {https://en.wikipedia.org/w/index.php?title=Transliteration&oldid=962816054},
   
   mediumdesignator = {online},
-  booktitle        = {Wikipedia (\bibstring{distributor})},
-  publisher        = {{Wikimedia foundation}},
-  url              = {https://en.wikipedia.org/w/index.php?title=Transliteration&oldid=962816054},
+  listd            = {Wikipedia},
+  organization     = {{Wikimedia Foundation}},
   urldate          = {2020-07-15},
   langid           = {english}
 }
 
 
 % TO DO: [see 7.12.2.6 EXAMPLE, p. 65]
-@inreference{wiki3,
+@online{wiki3,
   keywords         = {availability_and_location},
   options          = {shownocreator=false, shownodate=false},
   
   title            = {Transliteration},
+  url              = {https://en.wikipedia.org/wiki/Transliteration},
   
   mediumdesignator = {online},
-  booktitle        = {Wikipedia (\bibstring{distributor})},
-  publisher        = {{Wikimedia foundation}},
-  url              = {https://en.wikipedia.org/wiki/Transliteration},
+  listd            = {Wikipedia},
+  organization     = {{Wikimedia Foundation}},
   langid           = {english}
 }
 
@@ -2334,7 +2322,7 @@
   subtitle         = {A Catalogue Raisonné 1962 -- 1987},
   edition          = {4th Ed.},
   location         = {New York},
-  publisher        = {{Distributed Art Publishers, Inc.,}},
+  publisher        = {{Distributed Art Publishers, Inc.\isdot}},
   addendum         = {Listed and illustrated as catalogue raisonné no. II. 52},
   langid           = {english}
 }
@@ -2692,7 +2680,7 @@
 }
 
 
-% TO DO: [see 7.14.3 EXAMPLE 3, p. 72]
+% TO DO MAYBE: [see 7.14.3 EXAMPLE 3, p. 72]
 @incollection{aphrodisias,
   keywords         = {relationship},
   relatedoptions   = {shownodate=false, skipbib=true},
@@ -2701,10 +2689,11 @@
   title            = {On Aristotle's On Sense-Perception},
   date             = {2000},
 
-  editor           = {Alan Towney},
-  editortype       = {commentator, trans.},
+  editora          = {Alan Towney},
+  editortaype      = {commentator, trans.},
   note             = {Translated from Greek to English},
-  bookauthor       = {Richard Sarabji},
+  editor           = {Richard Sarabji},
+  editortype       = {editor},
   booktitle        = {Ancient Commentators on Aristotle},
   location         = {London and Ithaca},
   publisher        = {{Duckworth} and {Cornwell University Press}},
@@ -2720,7 +2709,7 @@
 }
 
 
-% TO DO MAYBE: [see 7.14.4 EXAMPLE, p. 72]
+% TO DO: [see 7.14.4 EXAMPLE, p. 72]
 @book{petzold,
   keywords         = {relationship},
   
@@ -2763,7 +2752,7 @@
 
   note             = {Arranged for 2 alto saxophones},
   editor           = {Himie Voxman and Richard Hervig},
-  editortype       = {arrangers},
+  editortype       = {arranger},
   location         = {San Antonio, TX},
   publisher        = {{Southern Music}},
   langid           = {english}
@@ -2966,7 +2955,7 @@
 }
 
 
-% TO DO: [see 7.14.7 EXAMPLE 6, p. 74]
+% [see 7.14.7 EXAMPLE 6, p. 74]
 @review{phillips,
   keywords         = {relationship},
   
@@ -3010,7 +2999,7 @@
   
   howpublished     = {Marble},
   venue            = {Acropolis Museum, Athens},
-  relatedtype      = {physicalsurrogate},
+  relatedtype      = {physsurrogatefrom},
   related          = {rel:brinkmann},
   langid           = {english}
 }
@@ -3085,7 +3074,7 @@
   
   howpublished     = {Watercolour},
   venue            = {Albertina, Vienna, Austria},
-  url+an:avail     = {="digitalsurrogate"},
+  url+an:avail     = {="digsurrogatefrom"},
   url              = {https://sammlungenonline.albertina.at/?query=Inventarnummer=[3073]},
   urldate          = {2020-07-04},
   langid           = {english}
@@ -3105,13 +3094,13 @@
   maintitle        = {Ernest Hemingway Collection},
   venue            = {John F. Kennedy Presidential Library, Boston \mkbibbrackets{US-MA}},
   note             = {Accession number: EH03073P},
-  url+an:avail     = {="digitalsurrogate"},
+  url+an:avail     = {="digsurrogatefrom"},
   url              = {https://www.jfklibrary.org/archives/ernest-hemingway-collection/hemingway-media-galleries/cuba-years-1939-1960},
   langid           = {english}
 }
 
 
-% TO DO MAYBE: [see 7.14.8 EXAMPLE 7, p. 75]
+% [see 7.14.8 EXAMPLE 7, p. 75]
 @online{sibelius,
   keywords         = {relationship},
   
@@ -3193,11 +3182,11 @@
 
   type             = {Aquarell},
   venue            = {Albertina, Vienna, Austria},
-  eprint+an:avail  = {="digitalsurrogate"},
+  eprint+an:avail  = {="digsurrogatefrom"},
   eprinttype       = {wikimedia},
   eprint           = {https://commons.wikimedia.org/wiki/File:Durer_Young_Hare.jpg},
   urldate          = {2018-07-16},
-  eprint+an:avail  = {="digitalsurrogate"},
+  eprint+an:avail  = {="digsurrogatefrom"},
   eprinttype       = {Google arts and culture \mkbibparens{distributor}},
   eprint           = {https://artsandculture.google.com/asset/hase/1QHEnzUGYMDG_w},
   urldate          = {2019-07-04},
@@ -3205,7 +3194,7 @@
 }
 
 
-% TO DO MAYBE: [see 7.14.9 EXAMPLE 1, p. 75]
+% TO DO: [see 7.14.9 EXAMPLE 1, p. 75]
 @misc{lego_movies,
   keywords         = {relationship},
   options          = {shownocreator=false},
@@ -3273,6 +3262,7 @@
   date             = {2018},
 
   subtitle         = {The Delta Dimension},
+  %maintitle        = {The Disney Masters Collection},
   series           = {The Disney Masters Collection},
   volume           = {1},
   location         = {College Park \mkbibbrackets{US-MD}},
@@ -3285,6 +3275,7 @@
   date             = {2018},
 
   subtitle         = {Uncle Scrooge's Money Rocket},
+  %maintitle        = {The Disney Masters Collection},
   series           = {The Disney Masters Collection},
   volume           = {2},
   location         = {College Park \mkbibbrackets{US-MD}},
@@ -3293,7 +3284,7 @@
 }
 
 
-% TO DO MAYBE: [see 7.14.10 EXAMPLE 1, p. 76]
+% [see 7.14.10 EXAMPLE 1, p. 76]
 @performance{beethoven2,
   keywords         = {relationship},
   %options          = {date=comp},
@@ -3356,17 +3347,18 @@
 }
 
 
-% TO DO: [see 7.14.11 EXAMPLE 1, p. 76]
-@incollection{wilhelm3,
+% TO DO MAYBE: [see 7.14.11 EXAMPLE 1, p. 76]
+@book{wilhelm3,
   keywords         = {relationship},
+  relatedoptions   = {shownocreator=false, skipbib=true},
   
   author           = {Richard Wilhelm},
   title            = {The I Ching, or, Book of Changes},
   date             = {1967},
 
   authortype       = {commentator},
-  mainseries       = {Bollingen Series},
-  mainvolume       = {170},
+  maintitle        = {Bollingen Series},
+  volume           = {170},
   number           = {Book XIX},
   note             = {Translated from German to English},
   translator       = {Cary F. Baynes},
@@ -3504,7 +3496,7 @@
 }
 
 
-% TO DO MAYBE: [see 7.15.8 EXAMPLE 3, p. 80]
+% [see 7.15.8 EXAMPLE 3, p. 80]
 @online{berners-lee2,
   keywords         = {other_elements},
   
@@ -3514,7 +3506,6 @@
 
   publisher        = {W3C},
   url              = {https://www.w3.org/Provider/Style/URI},
-  urldate          = {2018-09-07},
   addendum         = {\mkbibbrackets{SHA3-256 \seqsplit{ddeda5854f50c7bff8e55ccd30e2c1c3c45674768b3c83c7f88c142e81c3b9a7}}},
   langid           = {english}
 }
@@ -3526,7 +3517,7 @@
   options          = {maxbibnames=6, minbibnames=6},
   
   author           = {M, Klein and H. Van de Sompel and R. Sanderson and
-                     H. Shankar and L. Balakireva and K. Zhou and R. Tobin},
+                      H. Shankar and L. Balakireva and K. Zhou and R. Tobin},
   title            = {Scholarly Context Not Found},
   date             = {2014},
 
@@ -3549,13 +3540,13 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tests for "Resource categories" [see 8]
+% Tests for "Resource categories" [see 8, pp. 81–143]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %  TO DO:  [see 8.4.3 EXAMPLE 6, p. 88]
 @article{stieg,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   author           = {M. F. Stieg},
   title            = {The information needs of historians},
@@ -3572,7 +3563,7 @@
 
 % TO DO: [see 8.4.3 EXAMPLE 9, p. 89]
 @article{ajoet,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   %author           = {},
   %title            = {},
@@ -3594,7 +3585,7 @@
 
 % TO DO: [see 8.4.3 EXAMPLE 12, p. 89]
 @article{stringer,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   author           = {John A. Stringer and Charles E. Bronnimann and
                       Charles G. Mullen and Donghua H. Zhou and Sara A. Stellfox
@@ -3618,7 +3609,7 @@
 
 %  TO DO: [see 8.7.4 EXAMPLE 4, p. 101]
 @misc{passer,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   author           = {Ivan Passer},
   title            = {Cutter's Way},
@@ -3634,7 +3625,7 @@
 
 %  TO DO: [see 8.7.9 EXAMPLE 6, p. 106]
 @misc{CduS,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   author           = {{Cirque du Soleil}},
   title            = {60-minute special \#3},
@@ -3649,9 +3640,185 @@
 }
 
 
+% TO DO MAYBE: [see 8.10.3.4 EXAMPLE 1, p. 119]
+@patent{philip_morris,
+  keywords         = {resource_categories},
+  options          = {dateofapplattr=false},
+
+  holder           = {{Philip Morris Inc.\isdot}},
+  title            = {Optical perforating apparatus and system.},
+  location         = {European patent application},
+  number           = {0021165 A1},
+  date             = {1981-01-07},
+  
+  langid           = {english}
+}
+
+
+% TO DO MAYBE: [see 8.10.3.4 EXAMPLE 2, p. 120]
+@patent{carl_zeiss_jena,
+  keywords         = {resource_categories},
+  options          = {dateofapplattr=false},
+
+  holder           = {{Carl Zeiss Jena, VEB}},
+  title            = {Anordnung zur lichtelektrischen Erfassung der Mitte eines
+                      Lichtfeldes},
+  location         = {Switzerland, Patentschrift},
+  number           = {608626},
+  date             = {1979-01-15},
+  
+  langid           = {ngerman}
+}
+
+
+% TO DO MAYBE: [see 8.10.4 EXAMPLE 1, p. 120]
+@patent{winget,
+  keywords         = {resource_categories},
+
+  holder           = {{Winget Ltd}},
+  title            = {Detachable bulldozer attachment for dumper vehicles},
+  location         = {GB Patent Specification},
+  number           = {1060631},
+  date             = {1967-03-08},
+  
+  author           = {Reginald John England},
+  authortype       = {inventor},
+  origdate         = {1963-06-10},
+  note             = {Int.CI: E02F 3/76. GB CI: E1F 12},
+  
+  langid           = {english}
+}
+
+
+% [see 8.10.4 EXAMPLE 2, p. 120]
+@patent{blackberry,
+  keywords         = {resource_categories},
+
+  holder           = {{Blackberry Ltd}},
+  title            = {Method and handheld electronic device having a graphical
+                      user interface which arranges icons dynamically},
+  location         = {countryus},
+  number           = {201615059466 20160303.},
+  date             = {2016-06-30},
+  
+  nameaddon        = {CA},
+  type             = {U.S.A. patent application},
+  author           = {Mihal Lazaridis and David Paul Yach},
+  authortype       = {inventor},
+  publisher        = {US Patent Office},
+  url              = {https://worldwide.espacenet.com/},
+  urldate          = {2017-05-12},
+  
+  langid           = {english}
+}
+
+
+% [see 8.10.5 EXAMPLE, p. 120]
+@patent{christensen,
+  keywords         = {resource_categories},
+  options          = {dateofissattr=true},
+
+  holder           = {G. K. Christensen},
+  title            = {Toy building set},
+  location         = {US Patent},
+  number           = {3,597,875},
+  date             = {1971-08-10},
+  
+  origdate         = {1968-11-18},
+  
+  langid           = {english}
+}
+
+
+% TO DO MAYBE: [see 8.11.4.1 EXAMPLE 3, p. 122]
+@report{IETF,
+  keywords         = {resource_categories},
+  
+  author           = {{Internet Engineering Task Force}},
+  title            = {Intellectual Property Rights in IETF Technology},
+  date             = {2005},
+
+  nameaddon        = {IETF},
+  series           = {RFC},
+  number           = {3979},
+  mediumdesignator = {online},
+  howpublished     = {Best Current Practice 79},
+  editor           = {S. Bradner},
+  editortype       = {editor},
+  url              = {https://www.ietf.org/rfc/rfc3979.txt},
+  urldate          = {2021-02-10},
+  
+  langid           = {english}
+}
+
+
+% [see 8.11.4.1 EXAMPLE 4, p. 122]
+@report{calconnect,
+  keywords         = {resource_categories},
+  
+  author           = {CalConnect},
+  title            = {Date and time -- General recurrence representation},
+  date             = {2018},
+  
+  series           = {CC},
+  number           = {18012:2019},
+  mediumdesignator = {online},
+  eprinttype       = {CalConnect Document Registry},
+  eprint           = {https://standards.calconnect.org/csd/cc-18012.html},
+  urldate          = {2019-09-06},
+  
+  langid           = {english}
+}
+
+
+% TO DO: [see 8.11.4.1 EXAMPLE 5, p. 122]
+@report{NISO,
+  keywords         = {resource_categories},
+  
+  author           = {{National Information Standards Organization}},
+  title            = {Codes for the representation of languages for information
+                      interchange},
+  date             = {2001},
+  
+  series           = {ANSI/NISO},
+  number           = {Z39.53-2001},
+  mediumdesignator = {online},
+  maintitle        = {National Information Standards},
+  location         = {Bethesda \mkbibparens{Maryland}},
+  publisher        = {{NISO Press}},
+  issn             = {1041-5653},
+  url              = {https://groups.niso.org/apps/group_public/document.php?document_id=6540},
+  urldate          = {2018-05-11},
+  
+  langid           = {english}
+}
+
+
+% [see 8.16.6 EXAMPLE, p. 142]
+@thesis{mackie,
+  keywords         = {resource_categories},
+
+  author           = {A. G. Mackie},
+  title            = {The Impact of National Identity on the Brexit Vote},
+  type             = {mathesis},
+  institution      = {{Faculty of Social Sciences}},
+  date             = {2016},
+
+  subtitle         = {Explaining the Variance in Support of the European Union
+                      Between Scotland and England},
+  location         = {Helsinki},
+  publisher        = {{University of Helsinki}},
+  eprinttype       = {E\hyphen thesis},
+  eprint           = {http://urn.fi/URN:NBN:fi:hulib-201807022863},
+  urldate          = {2018-10-16},
+  
+  langid           = {english}
+}
+
+
 %  TO DO: [see 8.16.8 EXAMPLE, p. 142]
 @misc{jenkins,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   author           = {S. Jenkins and Janne Ruostekoski},
   title            = {Controlled manipulation of light by cooperative response
@@ -3669,7 +3836,7 @@
 
 %  TO DO: [see Bibliography [30], p. 158]
 @article{benbow,
-  keywords         = {},
+  keywords         = {resource_categories},
   
   author           = {S. M. P. Benbow},
   title            = {File Not Found},
