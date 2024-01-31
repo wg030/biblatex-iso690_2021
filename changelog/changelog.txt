@@ -80,3 +80,31 @@ CHANGELOG of the ISO 690:2021 Biblatex Bibliography Style
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% v0.3 (2024/01/31)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+- years are now printed without leading zeros and negative years are displayed
+  in the christian area representation using "BC"
+- date ranges are now separated by "–" instead of "/"
+- for titles (and also booktitles, maintitles and journaltitles) one can now
+  force the style in which they are displayed on a per-entry basis
+
+
+- the package option "bibnamessc" has been added
+- the entry options "emphtitle", "bookemphtitle", "mainemphtitle" and
+  "journalemphtitle" have been added
+
+- the bibmacro "complete_title" has been extended
+
+- the command "\familynameformat" have been improved
+- the following commands have been modified:
+  \bibdatetimesep, \bibdaterangesep, \blx@blxinit,
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+

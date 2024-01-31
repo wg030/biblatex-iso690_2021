@@ -502,9 +502,10 @@
 }
 
 
-% TO DO: [see 7.2.4.1 EXAMPLE 24, p. 29]
+% [see 7.2.4.1 EXAMPLE 24, p. 29]
 @article{akihito1,
   keywords         = {creator},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {Akihito},
   title            = {Linnaeus and taxonomy in Japan},
@@ -541,10 +542,11 @@
 }
 
 
-% TO DO: [see 7.2.4.1 EXAMPLE 26, p. 29]
+% [see 7.2.4.1 EXAMPLE 26, p. 29]
 @article{masahito,
   keywords         = {creator},
-  options          = {maxbibnames=7, minbibnames=7},
+  options          = {maxbibnames=7, minbibnames=7, emphtitle=true,
+                      emphjournaltitle=false},
   
   author           = {Masahito},
   namea            = {Midori Nishioka and Hiroaki Ueda and Yo Kato and
@@ -628,10 +630,11 @@
 }
 
 
-% TO DO: [see 7.2.6.6 EXAMPLE 2, p. 33]
+% TO DO MAYBE: [see 7.2.6.6 EXAMPLE 2, p. 33]
 @music{dexter,
   keywords         = {creator},
-  options          = {shownodate=false},
+  options          = {shownodate=false, emphtitle=false},
+  relatedoptions   = {shownocreator=false, emphtitle=true},
   
   author           = {Gordon Dexter},
   title            = {Settin' the pace},
@@ -642,8 +645,6 @@
   langid           = {english}
 }
 @audio{rel:sil_2211,
-  options          = {shownocreator=false},
-  
   title            = {Long Tall Dexter, the Savoy Sessions},
   date             = {1976},
   
@@ -830,9 +831,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% TO DO: [see 7.4.2.1 EXAMPLE 2, p. 38]
+% [see 7.4.2.1 EXAMPLE 2, p. 38]
 @article{maddox1,
   keywords         = {component_parts},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {Brenda Maddox},
   title            = {DNA's double helix},
@@ -947,10 +949,11 @@
 }
 
 
-% TO DO: [see 7.4.2.1 EXAMPLE 8, p. 39]
+% [see 7.4.2.1 EXAMPLE 8, p. 39]
 @music{gilberto,
   keywords         = {component_parts},
-  options          = {shownodate=false},
+  options          = {shownodate=false, emphtitle=false},
+  relatedoptions   = {shownocreator=false, emphtitle=true},
   
   author           = {Astrud Gilberto},
   namea            = {Stan Getz},
@@ -972,9 +975,7 @@
   relatedtype      = {in},
   langid           = {english}
 }
-@audio{rel:gilberto,  
-  options          = {shownocreator=false},
-  
+@audio{rel:gilberto,
   title            = {Getz/Gilberto},
   date             = {1964},
   
@@ -985,10 +986,11 @@
 }
 
 
-% TO DO: [see 7.4.2.2 EXAMPLE, p. 39]
+% [see 7.4.2.2 EXAMPLE, p. 39]
 @article{suhonen,
   keywords         = {component_parts},
-%  options          = {autolang=other},
+%  options          = {autolang=other, emphtitle=true, emphjournaltitle=false},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {Perrti Suhonen},
   title            = {Suomalaiset arvot ja politiikka},
@@ -1075,9 +1077,10 @@
 }
 
 
-% TO DO: [see 7.4.2.3 EXAMPLE 5, p. 40]
+% [see 7.4.2.3 EXAMPLE 5, p. 40]
 @article{maddox2,
   keywords         = {component_parts},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {Brenda Maddox},
   title            = {DNA's double helix},
@@ -1109,10 +1112,11 @@
 }
 
 
-% TO DO: [see 7.4.2.3 EXAMPLE 7, p. 40]
+% [see 7.4.2.3 EXAMPLE 7, p. 40]
 @music{cohen1,
   keywords         = {component_parts},
-  options          = {shownodate=false},
+  options          = {shownodate=false, emphtitle=false},
+  relatedoptions   = {emphtitle=true},
   
   author           = {Leonard Cohen},
   title            = {Suzanne},
@@ -1276,9 +1280,10 @@
 }
 
 
-% TO DO: [see 7.5.3 EXAMPLE 12, p. 43]
+% [see 7.5.3 EXAMPLE 12, p. 43]
 @article{saarela1,
   keywords         = {formats_and_resource_types},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {S. Saarela},
   title            = {On being a female supervisor in forest research
@@ -1454,9 +1459,10 @@
 }
 
 
-% TO DO: [see 7.8.2.2 EXAMPLE 3, p. 50]
+% [see 7.8.2.2 EXAMPLE 3, p. 50]
 @misc{ortelius,
   keywords         = {production_information},
+  options          = {emphtitle=false, emphmaintitle=true},
   
   author           = {Abraham Ortelius},
   title            = {Germania},
@@ -1618,9 +1624,10 @@
 }
 
 
-% TO DO: [see 7.11.1 EXAMPLE 2, p. 57]
+% [see 7.11.1 EXAMPLE 2, p. 57]
 @article{saarela2,
   keywords         = {identifiers},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {S. Saarela},
   title            = {On being a female supervisor in forest research education},
@@ -1797,9 +1804,10 @@
 }
 
 
-% TO DO: [see 7.11.3 EXAMPLE 3, p. 59]
+% [see 7.11.3 EXAMPLE 3, p. 59]
 @article{robinson,
   keywords         = {identifiers},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {R. Robinson},
   title            = {Quiet and Poised},
@@ -1818,10 +1826,10 @@
 }
 
 
-% TO DO: [see 7.11.3 EXAMPLE 4, p. 60]
+% [see 7.11.3 EXAMPLE 4, p. 60]
 @dataset{huening,
   keywords         = {identifiers},
-  options          = {maxbibnames=10, minbibnames=10},
+  options          = {maxbibnames=10, minbibnames=10, emphtitle=false},
   
   author           = {Anne K. Hüning and Franke Melzner and Jörn Thomsen and
                       Magdalena A. Gutowska and Lars Krämer and Mika Kohono and
@@ -2056,12 +2064,13 @@
 }
 
 
-% TO DO: [see 7.12.1.3 EXAMPLE 3, p. 63]
+% TO DO MAYBE: [see 7.12.1.3 EXAMPLE 3, p. 63]
 @artwork{picasso4,
   keywords         = {availability_and_location},
+  relatedoptions   = {emphtitle=true},
   
   author           = {Pablo Picasso},
-  title            = {Tripode},
+  title            = {TRIPODE},
   date             = {1951},
   
   howpublished     = {Vase, glazed and painted A.R. 125. Height
@@ -2192,10 +2201,10 @@
 }
 
 
-% TO DO: [see 7.12.2.10 EXAMPLE, p. 66]
+% TO DO MAYBE: [see 7.12.2.10 EXAMPLE, p. 66]
 @online{the_guardian,
   keywords         = {availability_and_location},
-  options          = {shownocreator=false},
+  options          = {shownocreator=false, emphtitle=false},
   
   title            = {The Guardian},
   date             = {2019-09-11},
@@ -2226,9 +2235,10 @@
 }
 
 
-% TO DO: [see 7.12.4 EXAMPLE 5, p. 68]
+% [see 7.12.4 EXAMPLE 5, p. 68]
 @article{carlson,
   keywords         = {availability_and_location},
+  options          = {emphtitle=true, emphjournaltitle=false},
   
   author           = {Amy Carlson and Barbara M. Pope},
   title            = {The \q{Big Deal}},
@@ -2248,10 +2258,10 @@
 }
 
 
-% TO DO: [see 7.12.4 EXAMPLE 7, p. 68]
+% TO DO MAYBE: [see 7.12.4 EXAMPLE 7, p. 68]
 @online{litlive,
   keywords         = {availability_and_location},
-  options          = {shownocreator=false},
+  options          = {shownocreator=false, emphtitle=false},
   
   title            = {Litlive},
   date             = {2015-02-10},
@@ -2299,9 +2309,10 @@
 }
 
 
-% TO DO: [see 7.13.2 EXAMPLE 6, p. 69]
+% [see 7.13.2 EXAMPLE 6, p. 69]
 @artwork{warhol,
   keywords         = {item_and_event_attributes},
+  relatedoptions   = {emphtitle=true},
   
   author           = {Andy Warhol},
   title            = {Consommé (Beef) Gelatin Added},
@@ -2314,7 +2325,7 @@
   relatedtype      = {cataloguedin},
   langid           = {english}
 }
-@book{rel:feldman,
+@book{rel:feldman,  
   author           = {F. Feldman and J. Schellmann},
   title            = {Andy Warhol Prints},
   date             = {2003},
@@ -2778,10 +2789,10 @@
 }
 
 
-% TO DO: [see 7.14.6 EXAMPLE 1, p. 73]
+% [see 7.14.6 EXAMPLE 1, p. 73]
 @book{baum,
   keywords         = {relationship},
-  relatedoptions   = {shownocreator=false, skipbib=true},
+  relatedoptions   = {shownocreator=false, emphtitle=true, skipbib=true},
   
   author           = {L. Frank Baum},
   title            = {The Wizard of Oz (A Stepping Stone Book)},
@@ -2988,11 +2999,11 @@
 }
 
 
-% TO DO: [see 7.14.8 EXAMPLE 2, p. 74]
+% TO DO MAYBE: [see 7.14.8 EXAMPLE 2, p. 74]
 @artwork{persian_rider,
   keywords         = {relationship},
   options          = {shownocreator=false},
-  relatedoptions   = {shownodate=false, skipbib=true},
+  relatedoptions   = {emphtitle=true, shownodate=false, skipbib=true},
   
   title            = {So-called Persian Rider},
   date             = {-0489~},
@@ -3003,7 +3014,7 @@
   related          = {rel:brinkmann},
   langid           = {english}
 }
-@artwork{rel:brinkmann,
+@artwork{rel:brinkmann,  
   author           = {Vinzenz Brinkmann and Ulrike Koch-Brinkmann},
   title            = {Experimental color reconstruction of the so-called
                       Persian Rider from the Athenian Acropolis, 2007/2019},
@@ -3300,9 +3311,10 @@
 }
 
 
-% TO DO: [see 7.14.10 EXAMPLE 2, p. 76]
+% [see 7.14.10 EXAMPLE 2, p. 76]
 @performance{waters,
   keywords         = {relationship},
+  relatedoptions   = {emphtitle=true},
   
   author           = {Roger Waters},
   title            = {The Wall Live},
@@ -3321,10 +3333,10 @@
 }
 
 
-% TO DO: [see 7.14.10 EXAMPLE 3, p. 76]
+% [see 7.14.10 EXAMPLE 3, p. 76]
 @performance{melbourne_so,
   keywords         = {relationship},
-  relatedoptions   = {shownodate=false, skipbib=true},
+  relatedoptions   = {emphtitle=true, shownodate=false, skipbib=true},
   
   author           = {{Melbourne Symphony Orchestra}},
   title            = {Mozart Symphony No. 29},

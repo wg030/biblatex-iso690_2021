@@ -57,6 +57,8 @@ SmallCapsFeatures={Numbers=OldStyle}]
 \newcommand{\textthai}[1]{\bgroup\thaifont #1\egroup}
 
 
+\AddToNoCaseChangeList{\textchinese \textjapanese \textthai}
+
 
 
 
@@ -74,7 +76,7 @@ SmallCapsFeatures={Numbers=OldStyle}]
 
 % literaturverzeichnis definieren
 \usepackage[backend=biber, style=iso690_2021,
-sorting=none, abbreviate=false]{biblatex}
+sorting=none, bibnamessc=false, abbreviate=false]{biblatex}
 \addbibresource{biblatex-iso690_2021-examples.bib}
 \setcounter{biburlnumpenalty}{7500}
 \setcounter{biburllcpenalty}{8000}
@@ -145,14 +147,14 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{hertlein}             % [see 7.2.4.1 EXAMPLE 21, p. 29]
 \nocite{henry_viii}           % [see 7.2.4.1 EXAMPLE 22, p. 29]
 \nocite{chao}                 % TO DO: [see 7.2.4.1 EXAMPLE 23, p. 29]
-\nocite{akihito1}             % TO DO: [see 7.2.4.1 EXAMPLE 24, p. 29]
+\nocite{akihito1}             % [see 7.2.4.1 EXAMPLE 24, p. 29]
 \nocite{akihito2}             % TO DO: [see 7.2.4.1 EXAMPLE 25, p. 29]
-\nocite{masahito}             % TO DO: [see 7.2.4.1 EXAMPLE 26, p. 29]
+\nocite{masahito}             % [see 7.2.4.1 EXAMPLE 26, p. 29]
 \nocite{benedict_xvi}         % [see 7.2.4.1 EXAMPLE 27, p. 29]
 \nocite{obsbn01}              % [see 7.2.6.3 EXAMPLE 3, p. 32]
 \nocite{welles1}              % [see 7.2.6.5 EXAMPLE 9, p. 33]
 \nocite{parker}               % [see 7.2.6.6 EXAMPLE 1, p. 33]
-\nocite{dexter}               % TO DO: [see 7.2.6.6 EXAMPLE 2, p. 33]
+\nocite{dexter}               % TO DO MAYBE: [see 7.2.6.6 EXAMPLE 2, p. 33]
 \nocite{gardner1}             % TO DO MAYBE: [see 7.2.6.7 EXAMPLE 2, p. 34]
 \nocite{bell}                 % [see 7.2.7 EXAMPLE 7, p. 34]
 \nocite{denver}               % [see 7.2.7 EXAMPLE 8, p. 34]
@@ -180,21 +182,21 @@ sorting=none, abbreviate=false]{biblatex}
 % Test for "Component parts" [see 7.4, pp. 38–40]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\nocite{maddox1}              % TO DO: [see 7.4.2.1 EXAMPLE 2, p. 38]
+\nocite{maddox1}              % [see 7.4.2.1 EXAMPLE 2, p. 38]
 \nocite{owen}                 % TO DO MAYBE: [see 7.4.2.1 EXAMPLE 3, p. 39]
 \nocite{waterson2}            % [see 7.4.2.1 EXAMPLE 4, p. 39]
 \nocite{wilhelm2}             % TO DO MAYBE: [see 7.4.2.1 EXAMPLE 5, p. 39]
 \nocite{waterson3}            % [see 7.4.2.1 EXAMPLE 6, p. 39]
 \nocite{scarpa3}              % [see 7.4.2.1 EXAMPLE 7, p. 39]
-\nocite{gilberto}             % TO DO: [see 7.4.2.1 EXAMPLE 8, p. 39]
-\nocite{suhonen}              % TO DO: [see 7.4.2.2 EXAMPLE, p. 39]
+\nocite{gilberto}             % [see 7.4.2.1 EXAMPLE 8, p. 39]
+\nocite{suhonen}              % [see 7.4.2.2 EXAMPLE, p. 39]
 \nocite{wiki1}                % [see 7.4.2.3 EXAMPLE 1, p. 40]
 \nocite{clark}                % [see 7.4.2.3 EXAMPLE 2, p. 40]
 \nocite{duerer1}              % [see 7.4.2.3 EXAMPLE 3, p. 40]
 \nocite{aymard2}              % TO DO MAYBE: [see 7.4.2.3 EXAMPLE 4, p. 40]
-\nocite{maddox2}              % TO DO: [see 7.4.2.3 EXAMPLE 5, p. 40]
+\nocite{maddox2}              % [see 7.4.2.3 EXAMPLE 5, p. 40]
 \nocite{maddox3}              % [see 7.4.2.3 EXAMPLE 6, p. 40]
-\nocite{cohen1}               % TO DO: [see 7.4.2.3 EXAMPLE 7, p. 40]
+\nocite{cohen1}               % [see 7.4.2.3 EXAMPLE 7, p. 40]
 \nocite{cohen2}               % TO DO: [see 7.4.2.3 EXAMPLE 8, p. 40]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,7 +215,7 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{gu}                   % TO DO: [see 7.5.1 EXAMPLE 6, p. 41]
 \nocite{plokhy1}              % [see 7.5.1 EXAMPLE 7, p. 41]
 \nocite{skloot}               % [see 7.5.1 EXAMPLE 8, p. 41]
-\nocite{saarela1}             % TO DO: [see 7.5.3 EXAMPLE 12, p. 43]
+\nocite{saarela1}             % [see 7.5.3 EXAMPLE 12, p. 43]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -249,7 +251,7 @@ sorting=none, abbreviate=false]{biblatex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \nocite{financial_times}      % [see 7.8.2.2 EXAMPLE 1, p. 50]
-\nocite{ortelius}             % TO DO: [see 7.8.2.2 EXAMPLE 3, p. 50]
+\nocite{ortelius}             % [see 7.8.2.2 EXAMPLE 3, p. 50]
 \nocite{fifa}                 % TO DO: [see 7.8.2.2 EXAMPLE 7, p. 50]
 \nocite{hawking}              % TO DO: [see 7.8.2.4 EXAMPLE 8, p. 51]
 
@@ -284,7 +286,7 @@ sorting=none, abbreviate=false]{biblatex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \nocite{orwell1}              % [see 7.11.1 EXAMPLE 1, p. 57]
-\nocite{saarela2}             % TO DO:[see 7.11.1 EXAMPLE 2, p. 57]
+\nocite{saarela2}             % [see 7.11.1 EXAMPLE 2, p. 57]
 \nocite{tynkkynen}            % [see 7.11.1 EXAMPLE 3, p. 57]
 \nocite{luckykilimanjaro}     % TO DO MAYBE: [see 7.11.1 EXAMPLE 4, p. 57]
 \nocite{mann}                 % [see 7.11.2 EXAMPLE 2, p. 58]
@@ -294,8 +296,8 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{Ekv1}                 % TO DO MAYBE: [see 7.11.2 EXAMPLE 9, p. 59]
 \nocite{Ekv2}                 % TO DO MAYBE: [see 7.11.2 EXAMPLE 10, p. 59]
 \nocite{gross}                % [see 7.11.3 EXAMPLE 1, p. 59]
-\nocite{robinson}             % TO DO: [see 7.11.3 EXAMPLE 3, p. 59]
-\nocite{huening}              % TO DO: [see 7.11.3 EXAMPLE 4, p. 60]
+\nocite{robinson}             % [see 7.11.3 EXAMPLE 3, p. 59]
+\nocite{huening}              % [see 7.11.3 EXAMPLE 4, p. 60]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -325,10 +327,10 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{iso_home_page}        % TO DO MAYBE: [see 7.12.2.5 EXAMPLE 1, p. 65]
 \nocite{wiki2}                % TO DO MAYBE: [see 7.12.2.5 EXAMPLE 2, p. 65]
 \nocite{wiki3}                % [see 7.12.2.6 EXAMPLE, p. 65]
-\nocite{the_guardian}         % TO DO: [see 7.12.2.10 EXAMPLE, p. 66]
+\nocite{the_guardian}         % TO DO MAYBE: [see 7.12.2.10 EXAMPLE, p. 66]
 \nocite{althaus}              % [see 7.12.3 EXAMPLE, p. 67]
-\nocite{carlson}              % TO DO: [see 7.12.4 EXAMPLE 5, p. 68]
-\nocite{litlive}              % TO DO: [see 7.12.4 EXAMPLE 7, p. 68]
+\nocite{carlson}              % [see 7.12.4 EXAMPLE 5, p. 68]
+\nocite{litlive}              % TO DO MAYBE: [see 7.12.4 EXAMPLE 7, p. 68]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -339,7 +341,7 @@ sorting=none, abbreviate=false]{biblatex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \nocite{shakespeare4}         % TO DO MAYBE: [see 7.13.2 EXAMPLE 5, p. 69]
-\nocite{warhol}               % TO DO: [see 7.13.2 EXAMPLE 6, p. 69]
+\nocite{warhol}               % [see 7.13.2 EXAMPLE 6, p. 69]
 \nocite{hirst}                % [see 7.13.2 EXAMPLE 7, p. 69]
 \nocite{nick_mason1}          % [see 7.13.3 EXAMPLE 6, p. 69]
 \nocite{nick_mason2}          % [see 7.13.3 EXAMPLE 7, p. 69]
@@ -368,7 +370,7 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{petzold}              % TO DO: [see 7.14.4 EXAMPLE, p. 72]
 \nocite{handel}               % [see 7.14.5 EXAMPLE 1, p. 72]
 \nocite{bach}                 % [see 7.14.5 EXAMPLE 2, p. 72]
-\nocite{baum}                 % TO DO: [see 7.14.6 EXAMPLE 1, p. 73]
+\nocite{baum}                 % [see 7.14.6 EXAMPLE 1, p. 73]
 \nocite{swift}                % [see 7.14.6 EXAMPLE 2, p. 73]
 \nocite{hugo}                 % TO DO: [see 7.14.6 EXAMPLE 3, p. 73]
 \nocite{pacini}               % [see 7.14.6 EXAMPLE 4, p. 73]
@@ -377,7 +379,7 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{travers}              % [see 7.14.7 EXAMPLE 5, p. 74]
 \nocite{phillips}             % [see 7.14.7 EXAMPLE 6, p. 74]
 \nocite{diplodocus_skeleton1} % TO DO: [see 7.14.8 EXAMPLE 1, p. 74]
-\nocite{persian_rider}    % ! % TO DO: [see 7.14.8 EXAMPLE 2, p. 74]
+\nocite{persian_rider}        % TO DO MAYBE: [see 7.14.8 EXAMPLE 2, p. 74]
 \nocite{diplodocus_skeleton2} % TO DO MAYBE: [see 7.14.8 EXAMPLE 3, p. 74]
 \nocite{brinkmann}            % TO DO: [see 7.14.8 EXAMPLE 4, p. 74]
 \nocite{duerer}               % TO DO MAYBE: [see 7.14.8 EXAMPLE 5, p. 75]
@@ -390,8 +392,8 @@ sorting=none, abbreviate=false]{biblatex}
 \nocite{lego_movies}          % TO DO: [see 7.14.9 EXAMPLE 1, p. 75]
 \nocite{disney_masters}       % TO DO: [see 7.14.9 EXAMPLE 2, p. 75]
 \nocite{beethoven2}           % [see 7.14.10 EXAMPLE 1, p. 76]
-\nocite{waters}               % TO DO: [see 7.14.10 EXAMPLE 2, p. 76]
-\nocite{melbourne_so}         % TO DO: [see 7.14.10 EXAMPLE 3, p. 76]
+\nocite{waters}               % [see 7.14.10 EXAMPLE 2, p. 76]
+\nocite{melbourne_so}         % [see 7.14.10 EXAMPLE 3, p. 76]
 \nocite{wilhelm3}             % TO DO MAYBE: [see 7.14.11 EXAMPLE 1, p. 76]
 \nocite{reid}                 % [see 7.14.11 EXAMPLE 2, p. 76]
 

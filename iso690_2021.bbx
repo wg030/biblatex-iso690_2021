@@ -1,8 +1,8 @@
 % iso690_2021.bbx
 
 
-\def\fileversion{0.2}
-\def\filedate{2023/10/25}
+\def\fileversion{0.3}
+\def\filedate{2024/01/31}
 
 \ProvidesFile{iso690_2021.bbx}
   [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
@@ -65,10 +65,43 @@
     \settoggle{bbx:dateofissattr}{#1}%
     \isoblx@info@noline{Use date of issuance attribute: #1}}
 
+\newtoggle{bbx:forcedtitlestyle}
+\newtoggle{bbx:emphtitle}
+\DeclareEntryOption[boolean]{emphtitle}[true]{
+    \toggletrue{bbx:forcedtitlestyle}
+    \settoggle{bbx:emphtitle}{#1}%
+    \isoblx@info@noline{Forced title style: emphtitle=#1}}
+
+\newtoggle{bbx:forcedbooktitlestyle}
+\newtoggle{bbx:emphbooktitle}
+\DeclareEntryOption[boolean]{emphbooktitle}[true]{
+    \toggletrue{bbx:forcedbooktitlestyle}
+    \settoggle{bbx:emphbooktitle}{#1}%
+    \isoblx@info@noline{Forced booktitle style: emphbooktitle=#1}}
+
+\newtoggle{bbx:forcedmaintitlestyle}
+\newtoggle{bbx:emphmaintitle}
+\DeclareEntryOption[boolean]{emphmaintitle}[true]{
+    \toggletrue{bbx:forcedmaintitlestyle}
+    \settoggle{bbx:emphmaintitle}{#1}%
+    \isoblx@info@noline{Forced maintitle style: emphmaintitle=#1}}
+
+\newtoggle{bbx:forcedjournaltitlestyle}
+\newtoggle{bbx:emphjournaltitle}
+\DeclareEntryOption[boolean]{emphjournaltitle}[true]{
+    \toggletrue{bbx:forcedjournaltitlestyle}
+    \settoggle{bbx:emphjournaltitle}{#1}%
+    \isoblx@info@noline{Forced journaltitle style: emphjournaltitle=#1}}
+
 \newtoggle{bbx:bibacrosc}
 \DeclareBibliographyOption{bibacrosc}[true]{
     \settoggle{bbx:bibacrosc}{#1}%
-    \isoblx@info@noline{Printing acronyms such as ISBN as textsc enabled: #1}}
+    \isoblx@info@noline{Printing acronyms such as ISBN in small caps enabled: #1}}
+
+\newtoggle{bbx:bibnamessc}
+\DeclareBibliographyOption{bibnamessc}[false]{
+    \settoggle{bbx:bibnamessc}{#1}%
+    \isoblx@info@noline{Printing names such as the author's name in small caps enabled: #1}}
 
 \newtoggle{bbx:noenddot}
 \DeclareBibliographyOption{noenddot}[true]{%
@@ -82,12 +115,14 @@
 {%
     % Biblatex Options
     autolang=hyphen,         % [see 6.4, p. 13; 7.1.2.2, pp. 14–16]
-    date=iso,                % [see 7.7.1, pp. 45–46]
-    urldate=iso,             % [see 7.7.1, pp. 45–46; 7.7.4, p. 48]
-    srrgtdate=iso,           % [see 7.7.5, pp. 48–49; 7.12.2.4 EXAMPLE 2, p. 65]
+    date=ymd,                % [see 7.7.1, pp. 45–46]
+    urldate=ymd,             % [see 7.7.1, pp. 45–46; 7.7.4, p. 48]
+    srrgtdate=ymd,           % [see 7.7.5, pp. 48–49; 7.12.2.4 EXAMPLE 2, p. 65]
     eventdate=comp,          % [see 7.10.5 EXAMPLE, p. 56]
-    origdate=iso,            % [see 8.10.5 EXAMPLE, p. 120]
+    origdate=ymd,            % [see 8.10.5 EXAMPLE, p. 120]
     %srrgtdateusetime=true,
+    datezeros=true,          % [see 7.7.4 EXAMPLE 1, p. 48]
+    dateera=christian,       % [see 7.14.8 EXAMPLE 2, p. 74]
     timezones=true,          % [see 7.12.2.4 EXAMPLE 2, p. 65]
     alldatesusetime=true,    % [see 8.15.3.5 EXAMPLE 3, p. 138]
     seconds=true,            % [see 8.15.3.5 EXAMPLE 3, p. 138]
@@ -105,6 +140,7 @@
     dateofapplattr = true,   % [see 8.10.4 EXAMPLE 1, p. 120]
     dateofissattr = false,   % [see 8.10.3.4 EXAMPLE 1, p. 119; 8.10.4 EXAMPLE 1, p. 120]
     bibacrosc = false,       % [see 7.11.1 EXAMPLE 1, p. 57]
+    bibnamessc = false,      % [see 7.2.2 EXAMPLE 1, p. 26]
     %
     % Biblatex ISO 690-2021 Options for the German Version
     noenddot=false,          % Use an end dot for the bibliography entries
@@ -277,8 +313,11 @@
 % CREATOR [see 7.2, pp. 25–35]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\newcommand*{\familynameformat}[1]{\MakeUppercase{#1}}
-\newcommand*{\familynameformat}[1]{\textsc{#1}}
+\newcommand*{\familynameformat}[1]{%
+    \iftoggle{bbx:bibnamessc}
+        {\textsc{#1}}
+        {\MakeUppercase{#1}}%
+}
 \renewcommand*{\mkbibnamefamily}{\familynameformat}
 %\renewcommand*{\mkbibnameprefix}{\familynameformat}
 
@@ -517,14 +556,24 @@
 
 \newbibmacro*{complete_title}[2]
 {%
+    \def\style{#2}%
+    \ifboolexpr{test {\ifstrempty{#1}} and togl {bbx:forcedtitlestyle}}
+        {\iftoggle{bbx:emphtitle}{\def\style{emph}}{\def\style{titlecase}}}{}%
+    \ifboolexpr{test {\ifstrequal{#1}{book}} and togl {bbx:forcedbooktitlestyle}} 
+        {\iftoggle{bbx:emphbooktitle}{\def\style{emph}}{\def\style{titlecase}}}{}%
+    \ifboolexpr{test {\ifstrequal{#1}{main}} and togl {bbx:forcedmaintitlestyle}}
+        {\iftoggle{bbx:emphmaintitle}{\def\style{emph}}{\def\style{titlecase}}}{}%
+    \ifboolexpr{test {\ifstrequal{#1}{journal}} and togl {bbx:forcedjournaltitlestyle}}
+        {\iftoggle{bbx:emphjournaltitle}{\def\style{emph}}{\def\style{titlecase}}}{}%
+    %
     \ifboolexpr{not test {\iffieldundef{#1title}}}%
-        {\printfield[#2]{#1title}%
+        {\printfield[\style]{#1title}%
         \ifboolexpr{not test {\iffieldundef{#1subtitle}}}
-            {\setunit{\printtext[#2]{\printdelim{subtitledelim}}}%
-            \printfield[#2]{#1subtitle}}{}%
+            {\setunit{\printtext[\style]{\printdelim{subtitledelim}}}%
+            \printfield[\style]{#1subtitle}}{}%
         \ifboolexpr{not test {\iffieldundef{#1titleaddon}}}
             {\setunit{\printdelim{titleaddondelim}}%
-            \printtext{\mkbibbrackets{\printfield[#2]{#1titleaddon}}}}{}}
+            \printtext{\mkbibbrackets{\printfield[\style]{#1titleaddon}}}}{}}
         % [see 7.1.2.4.3 EXAMPLE 27, p. 22]
         {\ifstrempty{#1}
             {\ifboolexpr{not test {\iffieldundef{titleaddon}}}
@@ -696,7 +745,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % [see 7.12.2.4 EXAMPLE 2, p. 65]
-\renewcommand*{\bibdatetimesep}{\addspace}
+\renewrobustcmd*{\bibdatetimesep}{\addspace}
+% [see 7.14.8 EXAMPLE 1, p. 74]
+\renewrobustcmd*{\bibdaterangesep}{\textendash}
+% [see 7.14.8 EXAMPLE 2, p. 74]
+\xpatchcmd*{\blx@blxinit}{\bibstring{\blx@dateera@bce}}{%
+\bibsstring{\blx@dateera@bce}}{}{\PackageWarning{biblatex-iso690_2021}%
+{Patching '\\dateeraprint' command failed.}}
+\xpatchcmd*{\blx@blxinit}{\bibstring{\blx@dateera@ce}}{%
+\bibsstring{\blx@dateera@ce}}{}{\PackageWarning{biblatex-iso690_2021}%
+{Patching '\\dateeraprint' command failed.}}
+% [see 7.14.8 EXAMPLE 2, p. 74]
+\renewcommand*{\blx@imc@mkyearzeros}{\blx@imc@stripzeros}
 
 % [see 7.7.2.3, p. 47]
 \renewcommand*{\dateuncertainprint}{\iftoggle{blx@dateuncertain}%
@@ -705,6 +765,8 @@
     {\ifenddateuncertain{\ifenddatecirca{}{\bibdateuncertain}}{}}{}}
 \renewcommand*{\datecircaprintiso}{\iftoggle{blx@datecirca}%
     {\ifdatecirca{\ifdateuncertain{}{\textasciitilde}}{}}{}}
+\renewcommand*{\datecircaprint}{%
+    \ifdatecirca{\bibncpsstring{circa}\printdelim{datecircadelim}}{}}
 \renewcommand*{\enddatecircaprintiso}{\iftoggle{blx@datecirca}%
     {\ifenddatecirca{\ifenddateuncertain{}{\textasciitilde}}{}}{}}
 \newcommand*{\dateuncertaincircaprintiso}
@@ -744,7 +806,6 @@
 
 
 
-%\DeclareFieldFormat*{date}{#1}
 \DeclareFieldFormat*{date}
 {%
     % [see 7.7.2.3 EXAMPLE 2, p. 47]

@@ -24,50 +24,10 @@ TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
 % [see 7.14.4 EXAMPLE, p. 72]
 
 
-% add "emphtitle" package option
-% [see 7.2.4.1 EXAMPLE 24, p. 29],[see 7.2.4.1 EXAMPLE 26, p. 29],
-% [see 7.2.6.6 EXAMPLE 2, p. 33],[see 7.4.2.1 EXAMPLE 2, p. 38], 
-% [see 7.4.2.1 EXAMPLE 8, p. 39], [see 7.4.2.2 EXAMPLE, p. 39],
-% [see 7.4.2.3 EXAMPLE 5, p. 40], [see 7.4.2.3 EXAMPLE 7, p. 40],
-% [see 7.5.3 EXAMPLE 12, p. 43],[see 7.8.2.2 EXAMPLE 3, p. 50],
-% [see 7.11.1 EXAMPLE 2, p. 57], [see 7.11.3 EXAMPLE 3, p. 59],
-% [see 7.11.3 EXAMPLE 4, p. 60], [see 7.12.1.3 EXAMPLE 3, p. 63],
-% [see 7.12.2.10 EXAMPLE, p. 66], [see 7.12.4 EXAMPLE 5, p. 68],
-% [see 7.12.4 EXAMPLE 7, p. 68], [see 7.13.2 EXAMPLE 6, p. 69],
-% [see 7.14.6 EXAMPLE 1, p. 73], [see 7.14.8 EXAMPLE 2, p. 74],
-% [see 7.14.10 EXAMPLE 2, p. 76], [see 7.14.10 EXAMPLE 3, p. 76]
-
-
-% add "empbooktitle" package option
-
-
-% add "emphmaintitle" package option
-% [see 7.8.2.2 EXAMPLE 3, p. 50]
-
-
-% add "emphjournaltitle" package option
-% [see 7.2.4.1 EXAMPLE 24, p. 29], [see 7.2.4.1 EXAMPLE 26, p. 29],
-% [see 7.4.2.1 EXAMPLE 2, p. 38], [see 7.4.2.2 EXAMPLE, p. 39],
-% [see 7.4.2.3 EXAMPLE 5, p. 40], [see 7.5.3 EXAMPLE 12, p. 43],
-% [see 7.11.1 EXAMPLE 2, p. 57], [see 7.11.3 EXAMPLE 3, p. 59],
-% [see 7.12.4 EXAMPLE 5, p. 68]
-
-
 % add "emphtitleaddon" package option
 % [see 7.1.2.4.3 EXAMPLE 25, p. 22], [see 7.2.4.1 EXAMPLE 23, p. 29],
 % [see 7.12.1.2 EXAMPLE 18, p. 61], [see 7.14.2 EXAMPLE 8, p. 71],
 % [see 7.15.5 EXAMPLE 1, p. 78]
-
-
-% print a date range like "1082/1135" as "1082–1135"
-% [see 7.2.4.1 EXAMPLE 23, p. 29], [see 7.4.2.3 EXAMPLE 8, p. 40],
-% [see 7.5.1 EXAMPLE 3, p. 40], [see 7.5.1 EXAMPLE 6, p. 41],
-% [see 7.14.8 EXAMPLE 1, p. 74], [see 7.14.8 EXAMPLE 4, p. 74],
-% [see 7.14.10 EXAMPLE 2, p. 76], [see 7.15.7 EXAMPLE 8, p. 79]
-
-
-% print a year like "0245" as "245" and "-0489" as "490 BC"
-% [see 7.14.3 EXAMPLE 1, p. 72], [see 7.14.8 EXAMPLE 2, p. 74]
 
 
 % make use of the oridgate field
@@ -132,6 +92,9 @@ TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
 % check all editor fields and change them to editora
 
 
+% add a "emphseries" entry option, which works like "emphtitle"
+
+
 % examples that have a different order of elements compared to how they
 % are show in the iso 690 document:
 % [see 7.1.2.4.3 EXAMPLE 26, p. 22], [see 7.1.3.3 EXAMPLE 3, p. 25],
@@ -149,7 +112,8 @@ TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
 % [see 7.12.1.3 EXAMPLE 2, p. 62], [see 7.12.1.3 EXAMPLE 3, p. 63],
 % [see 7.12.1.3 EXAMPLE 4, p. 63], [see 7.12.1.3 EXAMPLE 5, p. 63],
 % [see 7.12.2.5 EXAMPLE 1, p. 65], [see 7.12.2.5 EXAMPLE 2, p. 65],
-% [see 7.12.2.10 EXAMPLE, p. 66], [see 7.13.2 EXAMPLE 5, p. 69],
+% [see 7.12.2.10 EXAMPLE, p. 66], [see 7.12.4 EXAMPLE 7, p. 68],
+% [see 7.13.2 EXAMPLE 5, p. 69],
 % [see 7.13.3 EXAMPLE 8, p. 70], [see 7.13.3 EXAMPLE 9, p. 70],
 % [see 7.14.1 EXAMPLE 2, p. 70], [see 7.14.2 EXAMPLE 8, p. 71],
 % [see 7.14.2 EXAMPLE 9, p. 71], [see 7.14.2 EXAMPLE 10, p. 71],
