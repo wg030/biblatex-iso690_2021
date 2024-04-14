@@ -23,30 +23,27 @@
 % Item attributes [see 7.13.2 EXAMPLE 6, p. 69]
 cataloguedin,
 %
-% non obvious primary creators [see 7.2.2 EXAMPLE 1, p. 26]
-foreword,introduction,afterword,
-%
 % creator of work [see 7.2.2 a), p. 25]
 author,authors,composer,composers,songwriter,songwriters,librettist,librettists,
 lyricist,lyricists,mappingagency,surveyor,surveyors,cartographer,cartographers,
 systemdesignerofsoftware,systemdesignersofsoftware,holder,holders,patentee,
-patentees,patentapplicant,patentapplicants,inventor,inventors,artist,artists,
+patentees,patentapplicant,patentapplicants,inventors,artist,artists,
 photographer,photographers,directorofmotionpictures,directorsofmotionpictures,
 draughtsman,draughtsmen,graphicdesigner,graphicdesigners,architect,architects,
-director,directors,guitarist,guitarists,pianist,pianists,illustrator,illustrators,
+directors,guitarist,guitarists,pianist,pianists,illustrator,illustrators,
 %
 % expresser of created work [see 7.2.2 b), p. 25]
 conductor,conductors,performerofmusic,performersofmusic,performerofdrama,
-performersofdrama,translator,translators,softwareprogrammer,softwareprogrammers,
+performersofdrama,softwareprogrammer,softwareprogrammers,
 engineer,engineers,
 %
 % reviser of work [see 7.2.2 c), p. 25]
-compiler,compilers,editor,editors,editor2,editor2s,reviser,revisers,
+editor2,editor2s,
 %
 % creator of derivative work [see 7.2.2 d), p. 25]
 engraver,engravers,photographerofanothercreatorswork,
 photographersofanothercreatorswork,copyist,copyists,arranger,arrangers,reviewer,
-reviewers,commentator,commentators,annotator,
+reviewers,
 %
 % publisher of manifestation [see 7.2.2 e), p. 26]
 publisher,onlineinformationprovider,productioncompany,
@@ -69,12 +66,6 @@ looseleaf,boardbook,paperback,kindleebook,audiobook,
 % Digital file formats [see 7.5.3 EXAMPLE 5, p. 43]
 online,
 %
-% Uncertain, unknown, approximate or missing date [see 7.7.2.3 EXAMPLE 6, p. 47]
-nodate,
-%
-% Date of citation [see 7.7.4, p. 48]
-urlseen,
-%
 % Reissuance and surrogate dates [see 7.7.5, pp. 48–49;
 % 7.12.2.4 EXAMPLE 2, p. 65]
 conceived,reissued,reprinted,copied,facsimiled,cast,firstcast,digitised,
@@ -88,16 +79,13 @@ nolocation,
 %
 % Numeration and pagination [see 7.9.2, p. 54; 7.14.9 EXAMPLE 2, p. 75;
 % 7.11.3 EXAMPLE 3, p. 59; 7.5.3 EXAMPLE 12, p. 43]
-volume,volumes,edition,editions,number,part,page,pages,
+editions,
 %
 % Roles of international standard identifiers [see 7.11.2 EXAMPLE 8, p. 59]
 print,
 %
-% Identification of a PID [see 7.11.3 EXAMPLE 1, p. 59]
-urlfrom,
-%
 % Availability and location [see 7.12, pp. 60–68]
-listedat,urlalso,seealso,archivedcopy,originallyfrom,digsurrogatefrom,
+listedat,archivedcopy,originallyfrom,digsurrogatefrom,
 physsurrogatefrom,surrogatefrom,digitalrecording,legaldepositfrom,
 %
 % Access restrictions [see 7.12.4, pp. 67–68]
@@ -110,7 +98,7 @@ item,
 event,at,
 %
 % Relationship [see 7.14, pp. 70–76]
-translationof,commentaryon,annotationon,abridgementof,adaptationof,reviewof,
+commentaryon,annotationon,abridgementof,adaptationof,
 reproductionof,includes,performanceof,via,
 % Patents [see 8.10, pp. 118–120]
 applicationdate,issuancedate,
@@ -124,11 +112,6 @@ applicationdate,issuancedate,
 % Item [see 7.1.3.3 EAMPLE 4, p. 25] and
 % Item attributes [see 7.13.2 EXAMPLE 6, p. 69]
 cataloguedin = {{}{}},
-%
-% non obvious primary creators [see 7.2.2 EXAMPLE 1, p. 26]
-foreword = {{}{}},
-introduction = {{}{}},
-afterword = {{}{}},
 %
 % creator of work [see 7.2.2 a), p. 25]
 author = {{autor}{autor}},
@@ -154,7 +137,6 @@ patentee = {{dr\v{z}itel patentu}{dr\v{z}itel patentu}},
 patentees = {{dr\v{z}itel\'{e} patentu}{dr\v{z}itel\'{e} patentu}},
 patentapplicant = {{\v{z}adatel o patent}{\v{z}adatel o patent}},
 patentapplicants = {{\v{z}adatel\'{e} o patent}{\v{z}adatel\'{e} o patent}},
-inventor = {{vyn\'{a}lezce}{vyn\'{a}lezce}},
 inventors = {{vyn\'{a}lezci}{vyn\'{a}lezci}},
 artist = {{um\v{e}lec}{um\v{e}lec}},
 artists = {{um\v{e}lci}{um\v{e}lci}},
@@ -164,7 +146,6 @@ photographer = {{fotograf}{fotograf}},
 photographers = {{fotografov\'{e}}{fotografov\'{e}}},
 directorofmotionpictures = {{re\v{z}is\'{e}r}{re\v{z}is\'{e}r}},
 directorsofmotionpictures = {{re\v{z}is\'{e}\v{r}i}{re\v{z}is\'{e}\v{r}i}},
-director = {{re\v{z}is\'{e}r}{re\v{z}is\'{e}r}},            % same as above
 directors = {{re\v{z}is\'{e}\v{r}i}{re\v{z}is\'{e}\v{r}i}},
 draughtsman = {{kresl\'{i}\v{r}}{kresl\'{i}\v{r}}},
 draughtsmen = {{kresl\'{i}\v{r}i}{kresl\'{i}\v{r}i}},
@@ -180,8 +161,6 @@ performerofmusic = {{interpret}{interpret}},
 performersofmusic = {{interpret\'{e}}{interpret\'{e}}},
 performerofdrama = {{herec}{herec}},
 performersofdrama = {{herci}{herci}},
-translator = {{p\v{r}ekladatel}{p\v{r}ekladatel}},
-translators = {{p\v{r}ekladatel\'{e}}{p\v{r}ekladatel\'{e}}},
 softwareprogrammer = {{program\'{a}tor}{program\'{a}tor}},
 softwareprogrammers = {{program\'{a}to\v{r}i}{program\'{a}to\v{r}i}},
 engineer = {{in\v{z}en\'{y}r}{in\v{z}en\'{y}r}},
@@ -192,14 +171,8 @@ pianist = {{pianista}{pianista}},
 pianists = {{pianist\'{e}}{pianist\'{e}}},
 %
 % reviser of work [see 7.2.2 c), p. 25]
-compiler = {{}{}},
-compilers = {{}{}},
-editor = {{editor}{editor}},
-editors = {{edito\v{r}i}{edito\v{r}i}},
 editor2 = {{editor}{editor}},
 editor2s = {{edito\v{r}i}{edito\v{r}i}},
-reviser = {{revizor}{revizor}},
-revisers = {{revizo\v{r}i}{revizo\v{r}i}},
 %
 % creator of derivative work [see 7.2.2 d), p. 25]
 engraver = {{rytec}{rytec}},
@@ -212,10 +185,6 @@ arranger = {{aran\v{z}\'{e}r}{aran\v{z}\'{e}r}},
 arrangers = {{aran\v{z}\'{e}\v{r}i}{aran\v{z}\'{e}\v{r}i}},
 reviewer = {{recenzent}{recenzent}},
 reviewers = {{recenzenti}{recenzenti}},
-commentator = {{koment\'{a}tor}{koment\'{a}tor}},
-commentators = {{koment\'{a}to\v{r}i}{koment\'{a}to\v{r}i}},
-annotator = {{anot\'{a}tor}{anot\'{a}tor}},
-annotators = {{anot\'{a}to\v{r}i}{anot\'{a}to\v{r}i}},
 %
 % publisher of manifestation [see 7.2.2 e), p. 26]
 publisher = {{vydavatel}{vydavatel}},
@@ -247,15 +216,6 @@ paperback = {{bro\v{z}ovan\'{e} vyd\'{a}n\'{i}}{bro\v{z}ovan\'{e} vyd\'{a}n\'{i}
 kindleebook = {{e-kniha}{e-kniha}},
 audiobook = {{audiokniha}{audiokniha}},
 %
-% Digital file formats [see 7.5.3 EXAMPLE 5, p. 43]
-online = {{online}{online}},
-%
-% Uncertain, unknown, approximate or missing date [see 7.7.2.3 EXAMPLE 6, p. 47]
-nodate = {{bez data}{s\adddot\addnbthinspace a\adddot}},
-%
-% Date of citation [see 7.7.4, p. 48]
-urlseen = {{citov\'{a}no}{cit\adddot}},
-%
 % Reissuance and surrogate dates [see 7.7.5, pp. 48–49;
 % 7.12.2.4 EXAMPLE 2, p. 65]
 conceived = {{koncipov\'{a}no}{koncipov\'{a}no}},
@@ -276,26 +236,13 @@ nolocation = {{nezn\'{a}m\'{e} m\'{i}sto}{s\adddot\addnbthinspace l\adddot}},
 %
 % Numeration and pagination [see 7.9.2, p. 54; 7.14.9 EXAMPLE 2, p. 75;
 % 7.11.3 EXAMPLE 3, p. 59; 7.5.3 EXAMPLE 12, p. 43]
-volume = {{roc\v{c}\'{i}k}{ro\v{c}\adddot}},
-volumes = {{ro\v{c}\'{i}ky}{ro\v{c}\adddot}},
-edition = {{vyd\'{a}n\'{i}}{vyd\adddot}},
 editions = {{vyd\'{a}n\'{i}}{vyd\adddot}},
-number = {{\v{c}\'{i}slo}{\v{c}\adddot}},
-part = {{\v{c}\'{a}st}{\v{c}\'{a}st}},
-page = {{strana}{s\adddot}},
-pages = {{strany}{s\adddot}},
 %
 % Roles of international standard identifiers [see 7.11.2 EXAMPLE 8, p. 59]
 print = {{v\'{y}tisk}{v\'{y}tisk}},
 %
-% Identification of a PID [see 7.11.3 EXAMPLE 1, p. 59]
-% Network access [see 7.12.2.2, pp. 63–64]
-urlfrom = {{dostupn\'{e} z}{dostupn\'{e} z}},
-%
 % Availability and location [see 7.12, pp. 60–68]
 listedat = {{uveden\'{e} na}{uveden\'{e} na}},
-urlalso = {{dostupn\'{e} tak\'{e} z}{dostupn\'{e} tak\'{e} z}},
-seealso = {{viz tak\'{e}}{viz tak\'{e}}},
 archivedcopy = {{archivovan\'{a} kopie dostupn\'{a} z}{archivovan\'{a} kopie dostupn\'{a} z}},
 originallyfrom = {{origin\'{a}ln\v{e} dostupn\'{e} z}{origin\'{a}ln\v{e} dostupn\'{e} z}},
 digsurrogatefrom = {{digit\'{a}ln\v{e} dostupn\'{e} z}{digit\'{a}ln\v{e} dostupn\'{e} z}},
@@ -314,15 +261,12 @@ item = {{polo\v{z}ka}{polo\v{z}ka}},
 %
 % Event attributes [see 7.13.3, pp. 69–70]
 event = {{ud\'{a}lost}{ud\'{a}lost}},
-at = {{v}{v}},
 %
 % Relationship [see 7.14, pp. 70–76]
-translationof = {{p\v{r}eklad}{p\v{r}eklad}},
 commentaryon = {{koment\'{a}\v{r}}{koment\'{a}\v{r}}},
 annotationon = {{anotace}{anotace}},
 abridgementof = {{zkr\'{a}cen\'{i}}{zkr\'{a}cen\'{i}}},
 adaptationof = {{adaptace}{adaptace}},
-reviewof = {{recenze}{recenze}},
 reproductionof = {{reprodukce}{reprodukce}},
 includes = {{zahrnuje}{zahrnuje}},
 performanceof = {{v\'{y}kon}{v\'{y}kon}},
