@@ -107,4 +107,35 @@ CHANGELOG of the ISO 690:2021 Biblatex Bibliography Style
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% v0.4 (2025/07/02)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+- a bug (missing %) in the definition of the new package options that sometimes
+  resulted in an unwanted exta space, has been fixed.
+
+- the following bibmacros have been added:
+  "persistent_identifier_doi", "persistent_identifier_eprint", "identifier_url",
+  "persistent_identifiers_additional", "url_additional"
+- the bibmacro "persistent_identifiers" and "network_location_and_access" have
+  been modified
+- the bibmacro "identifiers" has been improved so that any doi, eprint or url
+  that has "urlalso" set as availability will be placed behind any doi, eprint
+  or url that does not have "urlalso" set as availability
+
+- the bibmacro "thesis:production_information" has been extended
+- the bibmacro "other_elements_1" has been bug-fixed
+- the bibmacro "report:host_title" has been added
+
+- the @inbook entry type has been adjusted to the latest changes.
+- the @report entry type has been improved. The maintitle field is now also
+  printed.
+
+- two little typos in the template for a new language have been corrected.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
 

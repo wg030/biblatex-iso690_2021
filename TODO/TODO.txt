@@ -1,5 +1,7 @@
 TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
 
+Last Update: 2025/07/02
+
 
 
 
@@ -39,15 +41,13 @@ TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
 % [see 8.10.4 EXAMPLE 2, p. 120]
 
 
-% print maintitle in @report entry type
-% [see 8.11.4.1 EXAMPLE 5, p. 122]
-
-
 % add support für surrogate dates
 % [see 7.7.5 EXAMPLE 4, p. 49]
 
 
-% implement the shownopublisher option
+% implement the shownopublisher option further
+% (it probably makes sense to tackle the support for the
+% orig fields first)
 [see 7.8.2.2 EXAMPLE 3, p. 50]
 
 
@@ -61,10 +61,6 @@ TO-DO-LISTS of the ISO 690:2021 Biblatex Bibliography Style
 
 % add eprintdate and doidate
 % [see 7.12.2.4 EXAMPLE 2, p. 65]
-
-
-% fix bug, where note is not display in context with venue
-% [see 7.14.8 EXAMPLE 6, p. 75]
 
 
 % improve output when two relations are displayed

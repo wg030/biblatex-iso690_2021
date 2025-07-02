@@ -1,11 +1,11 @@
 % iso690_2021.bbx
 
 
-\def\fileversion{0.3}
-\def\filedate{2024/01/31}
+\def\projectversion{0.4}
+\def\projectdate{2025/07/02}
 
 \ProvidesFile{iso690_2021.bbx}
-  [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
+  [\projectdate\space v\projectversion\space ISO 690:2021 Biblatex Bibliography Style]
 
 
 
@@ -31,75 +31,75 @@
 
 % Package Options
 \newtoggle{bbx:shownocreator}
-\DeclareBiblatexOption{global,type,entry}{shownocreator}[true]{
+\DeclareBiblatexOption{global,type,entry}{shownocreator}[true]{%
     \settoggle{bbx:shownocreator}{#1}%
     \isoblx@info@noline{Output "[ANONYMOUS]" if no creator is provided: #1}}
 
 \newtoggle{bbx:shownodate}
-\DeclareBiblatexOption{global,type,entry}{shownodate}[true]{
+\DeclareBiblatexOption{global,type,entry}{shownodate}[true]{%
     \settoggle{bbx:shownodate}{#1}%
     \isoblx@info@noline{Output "[no date]" if no date is provided: #1}}
 
 \newtoggle{bbx:shownopublisher}
-\DeclareBiblatexOption{global,type,entry}{shownopublisher}[false]{
+\DeclareBiblatexOption{global,type,entry}{shownopublisher}[false]{%
     \settoggle{bbx:shownopublisher}{#1}%
     \isoblx@info@noline{Output "publisher not known" if no publisher is provided: #1}}
 
 \newtoggle{bbx:shownolocation}
-\DeclareBiblatexOption{global,type,entry}{shownolocation}[false]{
+\DeclareBiblatexOption{global,type,entry}{shownolocation}[false]{%
     \settoggle{bbx:shownolocation}{#1}%
     \isoblx@info@noline{Output "place not known" if no location is provided: #1}}
 
 \newtoggle{bbx:publisherattr}
-\DeclareBibliographyOption{publisherattr}[true]{
+\DeclareBibliographyOption{publisherattr}[true]{%
     \settoggle{bbx:publisherattr}{#1}%
     \isoblx@info@noline{Use publisher attribute in case of no location: #1}}
 
 \newtoggle{bbx:dateofapplattr}
-\DeclareBiblatexOption{global,type,entry}{dateofapplattr}[true]{
+\DeclareBiblatexOption{global,type,entry}{dateofapplattr}[true]{%
     \settoggle{bbx:dateofapplattr}{#1}%
     \isoblx@info@noline{Use date of application attribute: #1}}
 
 \newtoggle{bbx:dateofissattr}
-\DeclareBiblatexOption{global,type,entry}{dateofissattr}[false]{
+\DeclareBiblatexOption{global,type,entry}{dateofissattr}[false]{%
     \settoggle{bbx:dateofissattr}{#1}%
     \isoblx@info@noline{Use date of issuance attribute: #1}}
 
 \newtoggle{bbx:forcedtitlestyle}
 \newtoggle{bbx:emphtitle}
-\DeclareEntryOption[boolean]{emphtitle}[true]{
-    \toggletrue{bbx:forcedtitlestyle}
+\DeclareEntryOption[boolean]{emphtitle}[true]{%
+    \toggletrue{bbx:forcedtitlestyle}%
     \settoggle{bbx:emphtitle}{#1}%
     \isoblx@info@noline{Forced title style: emphtitle=#1}}
 
 \newtoggle{bbx:forcedbooktitlestyle}
 \newtoggle{bbx:emphbooktitle}
-\DeclareEntryOption[boolean]{emphbooktitle}[true]{
-    \toggletrue{bbx:forcedbooktitlestyle}
+\DeclareEntryOption[boolean]{emphbooktitle}[true]{%
+    \toggletrue{bbx:forcedbooktitlestyle}%
     \settoggle{bbx:emphbooktitle}{#1}%
     \isoblx@info@noline{Forced booktitle style: emphbooktitle=#1}}
 
 \newtoggle{bbx:forcedmaintitlestyle}
 \newtoggle{bbx:emphmaintitle}
-\DeclareEntryOption[boolean]{emphmaintitle}[true]{
-    \toggletrue{bbx:forcedmaintitlestyle}
+\DeclareEntryOption[boolean]{emphmaintitle}[true]{%
+    \toggletrue{bbx:forcedmaintitlestyle}%
     \settoggle{bbx:emphmaintitle}{#1}%
     \isoblx@info@noline{Forced maintitle style: emphmaintitle=#1}}
 
 \newtoggle{bbx:forcedjournaltitlestyle}
 \newtoggle{bbx:emphjournaltitle}
-\DeclareEntryOption[boolean]{emphjournaltitle}[true]{
-    \toggletrue{bbx:forcedjournaltitlestyle}
+\DeclareEntryOption[boolean]{emphjournaltitle}[true]{%
+    \toggletrue{bbx:forcedjournaltitlestyle}%
     \settoggle{bbx:emphjournaltitle}{#1}%
     \isoblx@info@noline{Forced journaltitle style: emphjournaltitle=#1}}
 
 \newtoggle{bbx:bibacrosc}
-\DeclareBibliographyOption{bibacrosc}[true]{
+\DeclareBibliographyOption{bibacrosc}[true]{%
     \settoggle{bbx:bibacrosc}{#1}%
     \isoblx@info@noline{Printing acronyms such as ISBN in small caps enabled: #1}}
 
 \newtoggle{bbx:bibnamessc}
-\DeclareBibliographyOption{bibnamessc}[false]{
+\DeclareBibliographyOption{bibnamessc}[false]{%
     \settoggle{bbx:bibnamessc}{#1}%
     \isoblx@info@noline{Printing names such as the author's name in small caps enabled: #1}}
 
@@ -1207,6 +1207,16 @@
         {\mkbibacro{doi}\addcolon\nolinkurl{#1}}%
 }
 
+\newbibmacro*{persistent_identifier_doi}{%
+    % [see 7.11.3 EXAMPLE 3, p. 59]
+    \ifboolexpr{not test {\iffieldundef{doi}}}
+        {\usebibmacro{availability:doi}%
+        \printdelim{piddelim}%
+        \printfield{doi}%
+        \newunit%
+        \usebibmacro{access_restrictions:doi}}{}%
+}
+
 \DeclareFieldFormat*{eprint}{%
     \iffieldundef{eprinttype}
         {}
@@ -1332,24 +1342,44 @@
 \DeclareFieldAlias{eprint:Vimeo}{eprint:vimeo}
 \DeclareFieldAlias{eprint:Internet Archive}{eprint:internetarchive}
 
-
-
-% [see 7.11.3, p. 59–60]
-\newbibmacro*{persistent_identifiers}{%
-    % [see 7.11.3 EXAMPLE 1, p. 59]
-    \ifboolexpr{not test {\iffieldundef{doi}}}
-        {\usebibmacro{availability:doi}%
-        \printdelim{piddelim}%
-        \printfield{doi}%
-        \newunit%
-        \usebibmacro{access_restrictions:doi}}{}%
-    \newunit%
+\newbibmacro*{persistent_identifier_eprint}{%
     \ifboolexpr{not test {\iffieldundef{eprint}}}
         {\usebibmacro{availability:eprint}%
         \printdelim{piddelim}%
         \usebibmacro{eprint}%
         \newunit%
         \usebibmacro{access_restrictions:eprint}}{}%
+}
+
+
+
+% [see 7.11.3, p. 59–60]
+\newbibmacro*{persistent_identifiers}{%
+    \ifboolexpr{not test {\iffieldundef{doi}}}
+        {\hasfieldannotation[doi][avail]
+            {\ifdefstring{\abx@annotation@literal@field@doi@avail}{urlalso}
+                {}{\usebibmacro{persistent_identifier_doi}}}
+            {\usebibmacro{persistent_identifier_doi}}}{}%
+    \newunit%
+    \ifboolexpr{not test {\iffieldundef{eprint}}}
+        {\hasfieldannotation[eprint][avail]
+            {\ifdefstring{\abx@annotation@literal@field@eprint@avail}{urlalso}
+                {}{\usebibmacro{persistent_identifier_eprint}}}
+            {\usebibmacro{persistent_identifier_eprint}}}{}%
+}
+
+\newbibmacro*{persistent_identifiers_additional}{%
+    \ifboolexpr{not test {\iffieldundef{doi}}}
+        {\hasfieldannotation[doi][avail]
+            {\ifdefstring{\abx@annotation@literal@field@doi@avail}{urlalso}
+                {\usebibmacro{persistent_identifier_doi}}{}}
+            {}}{}%
+    \newunit%
+    \ifboolexpr{not test {\iffieldundef{eprint}}}
+        {\hasfieldannotation[eprint][avail]
+            {\ifdefstring{\abx@annotation@literal@field@eprint@avail}{urlalso}
+                {\usebibmacro{persistent_identifier_eprint}}{}}
+            {}}{}%
 }
 
 
@@ -1361,6 +1391,10 @@
     \usebibmacro{persistent_identifiers}%
     \newunit%
     \usebibmacro{network_location_and_access}%
+    \newunit%
+    \usebibmacro{persistent_identifiers_additional}%
+    \newunit%
+    \usebibmacro{url_additional}%
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1463,14 +1497,34 @@
 
 
 
-% [see 7.12.2, p. 63–66]
-\newbibmacro*{network_location_and_access}{%
+\newbibmacro*{identifier_url}{%
     \ifboolexpr{not test {\iffieldundef{url}}}
         {\usebibmacro{availability:url}%
         \printdelim{piddelim}%
         \printfield{url}%
         \newunit%
         \usebibmacro{access_restrictions:url}}{}%
+}
+
+
+\newbibmacro*{url_additional}{%
+    \ifboolexpr{not test {\iffieldundef{url}}}
+        {\hasfieldannotation[url][avail]
+            {\ifdefstring{\abx@annotation@literal@field@url@avail}{urlalso}
+                {\usebibmacro{identifier_url}}{}}
+            {}}{}%
+}
+
+
+
+
+% [see 7.12.2, p. 63–66]
+\newbibmacro*{network_location_and_access}{%
+    \ifboolexpr{not test {\iffieldundef{url}}}
+        {\hasfieldannotation[url][avail]
+            {\ifdefstring{\abx@annotation@literal@field@url@avail}{urlalso}
+                {}{\usebibmacro{identifier_url}}}
+            {\usebibmacro{identifier_url}}}{}%
     % [see 7.11.1 EXAMPLE 2 + EXAMPLE 3, p. 59]
     \newunit%
     \usebibmacro{srrgtdate}%
@@ -1707,9 +1761,8 @@
 
 \newbibmacro*{other_elements_1}
 {%
-    \ifboolexpr{test {\iffieldundef{venue}} and test {\iffieldundef{eventtitle}}
-    and test {\iffieldundef{eventyear}}
-    and not test {\iffieldannotation[note]{item}}}
+    \ifboolexpr{not test {\iffieldannotation[note]{item}}
+    and not test {\iffieldannotation[note]{event}}}
         {\printfield{note}}{}%
 }
 
@@ -1940,6 +1993,17 @@
     \usebibmacro{report_number}%
 }
 
+% [see 8.11.4.1 EXAMPLE 5, p. 122]
+\newbibmacro*{report:host_title}
+{%
+    \ifboolexpr{not test {\iffieldundef{maintitle}}}
+        {\usebibmacro{in:}%
+        \usebibmacro{complete_title}{main}{titlecase}%
+        \setunit*{\printdelim{titlevolumesdelim}}%
+        \usebibmacro{multiple_print_volumes}}{}%
+        %{\usebibmacro{in:}\newbibmacro*{series_title}}{}% does this work, too? 
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -1961,7 +2025,8 @@
             {\bibstring{publisher}\printdelim{publisherdelim}}{}%
         \printlist{publisher}%
         \setunit{\printdelim{publisherinstitutiondelim}}}
-        {}%
+        {\iftoggle{bbx:shownopublisher}
+            {\printtext{\mkbibbrackets{\bibstring{nopublisher}}}}{}}%
     \printlist{institution}%
     \setunit{\printdelim{publisherdatedelim}}%
     \usebibmacro{date}%
@@ -2069,6 +2134,10 @@
   \usebibmacro{persistent_identifiers}%
   \newunit\newblock
   \usebibmacro{network_location_and_access}%
+  \newunit\newblock
+  \usebibmacro{persistent_identifiers_additional}%
+  \newunit\newblock
+  \usebibmacro{url_additional}%
   \newunit\newblock
   \usebibmacro{item_and_events_attributes}%
   \newunit\newblock
@@ -2504,8 +2573,8 @@
 \newunit\newblock
 \usebibmacro{distributor_or_online_host}%
 \newunit\newblock
-%\usebibmacro{series+numeration_and_pagination}%
-%\newunit\newblock
+\usebibmacro{report:host_title}%
+\newunit\newblock
 \usebibmacro{identifiers}%
 \newunit\newblock
 \usebibmacro{item_and_events_attributes}%

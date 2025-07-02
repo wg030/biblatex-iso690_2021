@@ -1,11 +1,11 @@
 % iso690_2021.dbx
 
 
-\def\fileversion{0.3}
-\def\filedate{2024/01/31}
+\def\projectversion{0.4}
+\def\projectdate{2025/07/02}
 
 \ProvidesFile{iso690_2021.dbx}
-  [\filedate\space v\fileversion\space ISO 690:2021 Biblatex Bibliography Style]
+  [\projectdate\space v\projectversion\space ISO 690:2021 Biblatex Bibliography Style]
 
 
 
